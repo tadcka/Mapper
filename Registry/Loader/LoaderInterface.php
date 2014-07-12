@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Component\Mapper\Registry;
+namespace Tadcka\Component\Mapper\Registry\Loader;
 
-use Tadcka\Component\Mapper\Registry\Config\Config;
+use Tadcka\Component\Mapper\Registry\RegistryInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/12/14 11:26 PM
+ * @since 7/12/14 11:39 PM
  */
-interface RegistryInterface
+interface LoaderInterface
 {
     /**
-     * Add mapper config.
+     * Load mapper config and register it.
      *
-     * @param Config $config
+     * @param RegistryInterface $registry
      */
-    public function add(Config $config);
+    public function register(RegistryInterface $registry);
 }

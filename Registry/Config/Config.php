@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Component\Mapper\Config;
+namespace Tadcka\Component\Mapper\Registry\Config;
 
 use Tadcka\Component\Mapper\MapperFactoryInterface;
 

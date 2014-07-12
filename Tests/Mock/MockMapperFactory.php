@@ -9,21 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Component\Mapper\Loader;
+namespace Tadcka\Component\Mapper\Tests\Mock;
 
-use Tadcka\Component\Mapper\Registry\RegistryInterface;
+use Tadcka\Component\Mapper\MapperFactoryInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/12/14 11:39 PM
+ * @since 7/13/14 1:02 AM
  */
-interface LoaderInterface
+class MockMapperFactory implements MapperFactoryInterface
 {
+
     /**
-     * Load mapper config and register it.
-     *
-     * @param RegistryInterface $registry
+     * {@inheritdoc}
      */
-    public function register(RegistryInterface $registry);
+    public function create()
+    {
+        // TODO: Implement create() method.
+    }
 }

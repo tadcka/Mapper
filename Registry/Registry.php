@@ -11,9 +11,9 @@
 
 namespace Tadcka\Component\Mapper\Registry;
 
-use Tadcka\Component\Mapper\Config\Config;
-use Tadcka\Component\Mapper\Config\Container;
-use Tadcka\Component\Mapper\Loader\LoaderInterface;
+use Tadcka\Component\Mapper\Registry\Config\Config;
+use Tadcka\Component\Mapper\Registry\Config\Container;
+use Tadcka\Component\Mapper\Registry\Loader\LoaderInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
