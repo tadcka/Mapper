@@ -26,6 +26,6 @@ class MockMapperFactory implements MapperFactoryInterface
      */
     public function create()
     {
-        // TODO: Implement create() method.
+        return new MockMapper();
     }
 }

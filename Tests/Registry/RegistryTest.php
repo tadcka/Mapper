@@ -13,7 +13,7 @@ namespace Tadcka\Component\Mapper\Tests\Registry;
 
 use Tadcka\Component\Mapper\Registry\Config\Config;
 use Tadcka\Component\Mapper\Registry\Registry;
-use Tadcka\Component\Mapper\Tests\Mock\MockLoader;
+use Tadcka\Component\Mapper\Tests\Mock\Registry\Loader\MockLoader;
 use Tadcka\Component\Mapper\Tests\Mock\MockMapperFactory;
 
 /**

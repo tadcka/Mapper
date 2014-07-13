@@ -11,22 +11,21 @@
 
 namespace Tadcka\Component\Mapper\Tests\Mock;
 
-use Tadcka\Component\Mapper\Registry\Config\Config;
-use Tadcka\Component\Mapper\Registry\Loader\LoaderInterface;
-use Tadcka\Component\Mapper\Registry\RegistryInterface;
+use Tadcka\Component\Mapper\MapperInterface;
+use Tadcka\Component\Mapper\MapperItem;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/13/14 1:06 AM
+ * @since 7/13/14 5:15 PM
  */
-class MockLoader implements LoaderInterface
+class MockMapper implements MapperInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function register(RegistryInterface $registry)
+    public function getMapper($locale)
     {
-        $registry->add(new Config('test_loader', new MockMapperFactory()));
+        return new MapperItem('test', 'mock');
     }
 }
