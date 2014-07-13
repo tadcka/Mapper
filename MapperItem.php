@@ -29,6 +29,11 @@ class MapperItem implements MapperItemInterface
     private $name;
 
     /**
+     * @var bool
+     */
+    private $canUseForMapping;
+
+    /**
      * @var array|MapperItemInterface[]
      */
     private $children = array();
