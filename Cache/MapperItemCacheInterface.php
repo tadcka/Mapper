@@ -26,15 +26,19 @@ interface MapperItemCacheInterface
      *
      * @param SourceInterface $source
      * @param MapperItemInterface $mapperItem
+     * @param string $locale
+     *
+     * @return
      */
-    public function save(SourceInterface $source, MapperItemInterface $mapperItem);
+    public function save(SourceInterface $source, MapperItemInterface $mapperItem, $locale);
 
     /**
      * Fetches mapper item from the cache.
      *
      * @param SourceInterface $source
+     * @param string $locale
      *
-     * @return MapperItemInterface $mapperItem
+     * @return null|MapperItemInterface $mapperItem
      */
-    public function fetch(SourceInterface $source);
+    public function fetch(SourceInterface $source, $locale);
 }
