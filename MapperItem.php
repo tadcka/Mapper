@@ -131,8 +131,6 @@ class MapperItem implements MapperItemInterface
                 if ($first->getPriority() > $second->getPriority()) {
                     return -1;
                 }
-
-                return 0;
             }
         );
     }
