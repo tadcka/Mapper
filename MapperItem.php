@@ -39,17 +39,24 @@ class MapperItem implements MapperItemInterface
     private $children = array();
 
     /**
+     * @var int
+     */
+    private $priority;
+
+    /**
      * Constructor.
      *
      * @param string $slug
-     * @param string$name
+     * @param string $name
      * @param bool $canUseForMapping
+     * @param int $priority
      */
-    public function __construct($slug, $name, $canUseForMapping = true)
+    public function __construct($slug, $name, $canUseForMapping = true, $priority = 0)
     {
         $this->slug = $slug;
         $this->name = $name;
         $this->canUseForMapping = $canUseForMapping;
+        $this->priority = $priority;
     }
 
     /**
@@ -83,6 +90,8 @@ class MapperItem implements MapperItemInterface
      */
     public function getChildren()
     {
+        $this->sortChildren();
+
         return $this->children;
     }
 
@@ -100,5 +109,31 @@ class MapperItem implements MapperItemInterface
     public function canUseForMapping()
     {
         return $this->canUseForMapping;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    private function sortChildren()
+    {
+        uasort(
+            $this->children,
+            function (MapperItemInterface $first, MapperItemInterface $second) {
+                if ($first->getPriority() <= $second->getPriority()) {
+                    return 1;
+                }
+
+                if ($first->getPriority() > $second->getPriority()) {
+                    return -1;
+                }
+
+                return 0;
+            }
+        );
     }
 }

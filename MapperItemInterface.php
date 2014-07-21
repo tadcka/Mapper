@@ -61,4 +61,11 @@ interface MapperItemInterface
      * @return bool
      */
     public function canUseForMapping();
+
+    /**
+     * Get priority.
+     *
+     * @return int
+     */
+    public function getPriority();
 }
