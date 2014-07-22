@@ -16,7 +16,7 @@ namespace Tadcka\Component\Mapper\Model;
  *
  * @since 14.7.12 14.09
  */
-class Mapping
+class Mapping implements MappingInterface
 {
     /**
      * @var bool
@@ -34,7 +34,7 @@ class Mapping
     protected $right;
 
     /**
-     * @param boolean $main
+     * {@inheritdoc}
      */
     public function setMain($main)
     {
@@ -42,7 +42,7 @@ class Mapping
     }
 
     /**
-     * @return boolean
+     * {@inheritdoc}
      */
     public function isMain()
     {
@@ -50,15 +50,15 @@ class Mapping
     }
 
     /**
-     * @param \Tadcka\Component\Mapper\Model\CategoryInterface $left
+     * {@inheritdoc}
      */
-    public function setLeft($left)
+    public function setLeft(CategoryInterface $left)
     {
         $this->left = $left;
     }
 
     /**
-     * @return \Tadcka\Component\Mapper\Model\CategoryInterface
+     * {@inheritdoc}
      */
     public function getLeft()
     {
@@ -66,15 +66,15 @@ class Mapping
     }
 
     /**
-     * @param \Tadcka\Component\Mapper\Model\CategoryInterface $right
+     * {@inheritdoc}
      */
-    public function setRight($right)
+    public function setRight(CategoryInterface $right)
     {
         $this->right = $right;
     }
 
     /**
-     * @return \Tadcka\Component\Mapper\Model\CategoryInterface
+     * {@inheritdoc}
      */
     public function getRight()
     {

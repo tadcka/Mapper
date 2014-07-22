@@ -12,6 +12,7 @@
 namespace Tadcka\Component\Mapper\Provider;
 
 use Tadcka\Component\Mapper\MapperItemInterface;
+use Tadcka\Component\Mapper\Model\CategoryInterface;
 use Tadcka\Component\Mapper\Model\SourceInterface;
 
 /**
@@ -39,4 +40,14 @@ interface MapperProviderInterface
      * @return MapperItemInterface
      */
     public function getMapper(SourceInterface $source, $locale);
+
+    /**
+     * Get mapping categories.
+     *
+     * @param CategoryInterface $category
+     * @param SourceInterface $source
+     *
+     * @return array|CategoryInterface[]
+     */
+    public function getMappingCategories(CategoryInterface $category, SourceInterface $source);
 }

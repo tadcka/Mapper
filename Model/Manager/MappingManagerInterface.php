@@ -31,6 +31,16 @@ interface MappingManagerInterface
     public function findManyByCategory(CategoryInterface $category);
 
     /**
+     * Find many mappings.
+     *
+     * @param string $categorySlug
+     * @param string $sourceSlug
+     *
+     * @return array|MappingInterface[]
+     */
+    public function findManyMappings($categorySlug, $sourceSlug);
+
+    /**
      * Create mapping object.
      *
      * @return MappingInterface
