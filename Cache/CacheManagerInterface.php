@@ -16,49 +16,38 @@ namespace Tadcka\Component\Mapper\Cache;
  *
  * @since 7/23/14 10:02 PM
  */
-interface CacheInterface
+interface CacheManagerInterface
 {
     /**
-     * Saves tree in the cache.
+     * Saves in the cache.
      *
-     * @param string $name
-     * @param string $json
-     * @param string $locale
+     * @param string $filename
+     * @param string $string
      */
-    public function save($name, $json, $locale);
+    public function save($filename, $string);
 
     /**
-     * Fetches tree from the cache.
+     * Fetches from the cache.
      *
-     * @param string $name
-     * @param string $locale
+     * @param string $filename
      *
      * @return string
      */
-    public function fetch($name, $locale);
+    public function fetch($filename);
 
     /**
-     * Check if has tree cache.
+     * Check if has cache.
      *
-     * @param string $name
-     * @param string $locale
+     * @param string $filename
      *
      * @return bool
      */
-    public function has($name, $locale);
+    public function has($filename);
 
     /**
-     * Remove tree by locale.
+     * Remove cache.
      *
-     * @param string $name
-     * @param string $locale
+     * @param string $filename
      */
-    public function remove($name, $locale);
-
-    /**
-     * Remove tree cache.
-     *
-     * @param string $name
-     */
-    public function removeAll($name);
+    public function remove($filename);
 }

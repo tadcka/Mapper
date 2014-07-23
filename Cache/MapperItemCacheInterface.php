@@ -41,4 +41,29 @@ interface MapperItemCacheInterface
      * @return null|MapperItemInterface $mapperItem
      */
     public function fetch(SourceInterface $source, $locale);
+
+    /**
+     * Check if has mapper item cache.
+     *
+     * @param SourceInterface $source
+     * @param string $locale
+     *
+     * @return bool
+     */
+    public function has(SourceInterface $source, $locale);
+
+    /**
+     * Remove mapper item cache by locale.
+     *
+     * @param SourceInterface $source
+     * @param string $locale
+     */
+    public function remove(SourceInterface $source, $locale);
+
+    /**
+     * Remove mapper item cache.
+     *
+     * @param SourceInterface $source
+     */
+    public function removeAll(SourceInterface $source);
 }
