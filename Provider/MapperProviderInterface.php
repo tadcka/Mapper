@@ -36,10 +36,11 @@ interface MapperProviderInterface
      *
      * @param SourceInterface $source
      * @param string $locale
+     * @param bool $force
      *
      * @return MapperItemInterface
      */
-    public function getMapper(SourceInterface $source, $locale);
+    public function getMapper(SourceInterface $source, $locale, $force = false);
 
     /**
      * Get mapping categories.
