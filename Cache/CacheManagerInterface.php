@@ -50,4 +50,15 @@ interface CacheManagerInterface
      * @param string $filename
      */
     public function remove($filename);
+
+    /**
+     * Get filename.
+     *
+     * @param string $cacheDir
+     * @param string $name
+     * @param string $locale
+     *
+     * @return string
+     */
+    public function getFilename($cacheDir, $name, $locale);
 }
