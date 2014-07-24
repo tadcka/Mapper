@@ -52,6 +52,14 @@ interface CacheManagerInterface
     public function remove($filename);
 
     /**
+     * Remove all cache.
+     *
+     * @param string $cacheDir
+     * @param string $name
+     */
+    public function removeAll($cacheDir, $name);
+
+    /**
      * Get filename.
      *
      * @param string $cacheDir
@@ -61,4 +69,14 @@ interface CacheManagerInterface
      * @return string
      */
     public function getFilename($cacheDir, $name, $locale);
+
+    /**
+     * Get locales cache.
+     *
+     * @param string $cacheDir
+     * @param string $name
+     *
+     * @return array
+     */
+    public function getLocalesCache($cacheDir, $name);
 }
