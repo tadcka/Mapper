@@ -14,6 +14,7 @@ namespace Tadcka\Component\Mapper\Provider;
 use Tadcka\Component\Mapper\Exception\ResourceNotFoundException;
 use Tadcka\Component\Mapper\MapperItemInterface;
 use Tadcka\Component\Mapper\Model\CategoryInterface;
+use Tadcka\Component\Mapper\Model\Manager\MappingManagerInterface;
 use Tadcka\Component\Mapper\Model\SourceInterface;
 
 /**
@@ -53,4 +54,34 @@ interface MapperProviderInterface
      * @return array|CategoryInterface[]
      */
     public function getMappingCategories(CategoryInterface $category, SourceInterface $source);
+
+    /**
+     * Can use for mapping.
+     *
+     * @param string $categorySlug
+     * @param MapperItemInterface $mapperItem
+     *
+     * @return bool
+     */
+    public function canUseForMapping($categorySlug, MapperItemInterface $mapperItem);
+
+    /**
+     * Get mapper items.
+     *
+     * @param array|CategoryInterface[] $categories
+     * @param MapperItemInterface $mapperItem
+     *
+     * @return array|MappingManagerInterface[]
+     */
+    public function getMapperItems(array $categories, MapperItemInterface $mapperItem);
+
+    /**
+     * Get mapper item by category.
+     *
+     * @param string $categorySlug
+     * @param MapperItemInterface $mapperItem
+     *
+     * @return null|MapperItemInterface
+     */
+    public function getMapperItemByCategory($categorySlug, MapperItemInterface $mapperItem);
 }
