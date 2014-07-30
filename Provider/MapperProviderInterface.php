@@ -56,16 +56,6 @@ interface MapperProviderInterface
     public function getMappingCategories(CategoryInterface $category, SourceInterface $source);
 
     /**
-     * Can use for mapping.
-     *
-     * @param string $categorySlug
-     * @param MapperItemInterface $mapperItem
-     *
-     * @return bool
-     */
-    public function canUseForMapping($categorySlug, MapperItemInterface $mapperItem);
-
-    /**
      * Get mapper items.
      *
      * @param array|CategoryInterface[] $categories
