@@ -12,6 +12,7 @@
 namespace Tadcka\Component\Mapper\Tests\Mock;
 
 use Tadcka\Component\Mapper\MapperFactoryInterface;
+use Tadcka\Component\Mapper\MapperInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -20,12 +21,31 @@ use Tadcka\Component\Mapper\MapperFactoryInterface;
  */
 class MockMapperFactory implements MapperFactoryInterface
 {
+    /**
+     * @var MapperInterface
+     */
+    private $mapper;
+
+    /**
+     * Constructor.
+     *
+     * @param null|MapperInterface $mapper
+     */
+    public function __construct(MapperInterface $mapper = null)
+    {
+        if (null === $mapper) {
+            $mapper = new MockMapper();
+        }
+
+        $this->mapper = $mapper;
+    }
+
 
     /**
      * {@inheritdoc}
      */
     public function create()
     {
-        return new MockMapper();
+        return $this->mapper;
     }
 }
