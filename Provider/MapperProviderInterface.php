@@ -74,4 +74,14 @@ interface MapperProviderInterface
      * @return null|MapperItemInterface
      */
     public function getMapperItemByCategory($categorySlug, MapperItemInterface $mapperItem);
+
+    /**
+     * Get mapping main category slug.
+     *
+     * @param string $currentCategorySlug
+     * @param string $otherSourceSlug
+     *
+     * @return null|string
+     */
+    public function getMappingMainCategorySlug($currentCategorySlug, $otherSourceSlug);
 }

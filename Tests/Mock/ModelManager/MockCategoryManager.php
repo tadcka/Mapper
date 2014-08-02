@@ -40,7 +40,18 @@ class MockCategoryManager implements CategoryManagerInterface
      */
     public function findManyBySlugsAndSource(array $slugs, SourceInterface $source)
     {
-        // TODO: Implement findManyBySlugsAndSource() method.
+        $result = array();
+        foreach ($slugs as $slug) {
+            foreach ($this->categories as $category) {
+                if (($slug === $category->getSlug()) &&
+                    ((null !== $category->getSource()) && ($source->getSlug() === $category->getSource()->getSlug()))
+                ) {
+                    $result[] = $category;
+                }
+            }
+        }
+
+        return $result;
     }
 
     /**

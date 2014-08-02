@@ -30,6 +30,13 @@ class MockMappingManager implements MappingManagerInterface
     /**
      * {@inheritdoc}
      */
+    public function findMainMapping($categorySlug, $sourceSlug)
+    {
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function findManyByCategory(CategoryInterface $category)
     {
         // TODO: Implement findManyByCategory() method.

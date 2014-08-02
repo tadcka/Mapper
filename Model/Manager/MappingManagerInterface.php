@@ -22,6 +22,16 @@ use Tadcka\Component\Mapper\Model\MappingInterface;
 interface MappingManagerInterface
 {
     /**
+     * Find main mapping.
+     *
+     * @param string $categorySlug
+     * @param string $sourceSlug
+     *
+     * @return null|MappingInterface
+     */
+    public function findMainMapping($categorySlug, $sourceSlug);
+
+    /**
      * Find many mapping by category.
      *
      * @param CategoryInterface $category
