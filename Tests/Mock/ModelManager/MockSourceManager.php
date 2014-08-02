@@ -116,4 +116,12 @@ class MockSourceManager implements SourceManagerInterface
 
         return $source;
     }
+
+    /**
+     * @return array|SourceInterface[]
+     */
+    public function getSources()
+    {
+        return $this->sources;
+    }
 }

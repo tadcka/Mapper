@@ -17,7 +17,7 @@ use Tadcka\Component\Mapper\MapperInterface;
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/13/14 1:02 AM
+ * @since  7/13/14 1:02 AM
  */
 class MockMapperFactory implements MapperFactoryInterface
 {
@@ -40,12 +40,19 @@ class MockMapperFactory implements MapperFactoryInterface
         $this->mapper = $mapper;
     }
 
-
     /**
      * {@inheritdoc}
      */
     public function create()
     {
         return $this->mapper;
+    }
+
+    /**
+     * @param MapperInterface $mapper
+     */
+    public function setMapper(MapperInterface $mapper)
+    {
+        $this->mapper = $mapper;
     }
 }

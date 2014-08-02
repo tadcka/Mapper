@@ -22,6 +22,10 @@ use Tadcka\Component\Mapper\Model\SourceInterface;
  */
 class MockCategoryManager implements CategoryManagerInterface
 {
+    /**
+     * @var array|CategoryInterface[]
+     */
+    private $categories = array();
 
     /**
      * {@inheritdoc}
@@ -63,7 +67,7 @@ class MockCategoryManager implements CategoryManagerInterface
      */
     public function add(CategoryInterface $category, $save = false)
     {
-        // TODO: Implement add() method.
+        $this->categories[] = $category;
     }
 
     /**
@@ -96,5 +100,13 @@ class MockCategoryManager implements CategoryManagerInterface
     public function getClass()
     {
         return 'Tadcka\Component\Mapper\Model\Category';
+    }
+
+    /**
+     * @return array|CategoryInterface[]
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

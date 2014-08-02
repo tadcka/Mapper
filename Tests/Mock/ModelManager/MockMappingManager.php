@@ -61,7 +61,10 @@ class MockMappingManager implements MappingManagerInterface
      */
     public function create()
     {
-        // TODO: Implement create() method.
+        $className = $this->getClass();
+        $mapping = new $className;
+
+        return $mapping;
     }
 
     /**
@@ -101,6 +104,14 @@ class MockMappingManager implements MappingManagerInterface
      */
     public function getClass()
     {
-        // TODO: Implement getClass() method.
+        return 'Tadcka\Component\Mapper\Model\Mapping';
+    }
+
+    /**
+     * @return array|MappingInterface[]
+     */
+    public function getMappings()
+    {
+        return $this->mappings;
     }
 }
