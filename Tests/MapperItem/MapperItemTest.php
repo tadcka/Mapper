@@ -20,7 +20,7 @@ use Tadcka\Component\Mapper\MapperItem;
  */
 class MapperItemTest extends \PHPUnit_Framework_TestCase
 {
-    public function testEqualPriority()
+    public function testWithoutPriority()
     {
         $children = array(
             new MapperItem('test_1', 'test1'),
