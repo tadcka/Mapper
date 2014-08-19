@@ -66,6 +66,29 @@ class MockMappingManager implements MappingManagerInterface
     /**
      * {@inheritdoc}
      */
+    public function findManyMappingsByCategories(array $categories, $sourceSlug)
+    {
+        $data = array();
+        foreach ($categories as $categorySlug) {
+            foreach ($this->mappings as $mapping) {
+                if (($categorySlug === $mapping->getLeft()->getSlug()) &&
+                    ($sourceSlug === $mapping->getRight()->getSource()->getSlug())
+                ) {
+                    $data[] = $mapping;
+                } elseif (($categorySlug === $mapping->getRight()->getSlug()) &&
+                    ($sourceSlug === $mapping->getLeft()->getSource()->getSlug())
+                ) {
+                    $data[] = $mapping;
+                }
+            }
+        }
+
+        return $data;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function create()
     {
         $className = $this->getClass();

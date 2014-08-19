@@ -30,7 +30,14 @@ class MapperHelper
      */
     public function getMapperItemFullPath($slug, MapperItemInterface $tree)
     {
-        return array_reverse($this->findRecursiveFullPath($slug, $tree));
+        $path = $this->findRecursiveFullPath($slug, $tree);
+        if (0 < count($path)) {
+            $path[$tree->getSlug()] = $tree->getName();
+
+            return array_reverse($path);
+        }
+
+        return array();
     }
 
     /**

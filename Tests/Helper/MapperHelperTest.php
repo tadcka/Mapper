@@ -17,7 +17,7 @@ use Tadcka\Component\Mapper\MapperItem;
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 14.8.17 17.51
+ * @since  14.8.17 17.51
  */
 class MapperHelperTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,11 +27,14 @@ class MapperHelperTest extends \PHPUnit_Framework_TestCase
         $helper = new MapperHelper();
         $path = $helper->getMapperItemFullPath('test_5_3_5', $mapperItem);
 
-        $this->assertEquals(array('test_5' => 'test_5', 'test_5_3' => 'test_5_3', 'test_5_3_5' => 'test_5_3_5'), $path);
+        $this->assertEquals(
+            array('test' => 'test', 'test_5' => 'test_5', 'test_5_3' => 'test_5_3', 'test_5_3_5' => 'test_5_3_5'),
+            $path
+        );
 
         $path = $helper->getMapperItemFullPath('test_1_5', $mapperItem);
 
-        $this->assertEquals(array('test_1' => 'test_1', 'test_1_5' => 'test_1_5'), $path);
+        $this->assertEquals(array('test' => 'test', 'test_1' => 'test_1', 'test_1_5' => 'test_1_5'), $path);
 
         $path = $helper->getMapperItemFullPath('fake', $mapperItem);
 
