@@ -26,39 +26,33 @@ interface MappingManagerInterface
      *
      * @param string $categorySlug
      * @param string $sourceSlug
+     * @param string $otherSourceSlug
      *
      * @return null|MappingInterface
      */
-    public function findMainMapping($categorySlug, $sourceSlug);
-
-    /**
-     * Find many mapping by category.
-     *
-     * @param CategoryInterface $category
-     *
-     * @return array|MappingInterface[]
-     */
-    public function findManyByCategory(CategoryInterface $category);
+    public function findMainMapping($categorySlug, $sourceSlug, $otherSourceSlug);
 
     /**
      * Find many mappings.
      *
      * @param string $categorySlug
      * @param string $sourceSlug
+     * @param string $otherSourceSlug
      *
      * @return array|MappingInterface[]
      */
-    public function findManyMappings($categorySlug, $sourceSlug);
+    public function findManyMappingsByCategorySlug($categorySlug, $sourceSlug, $otherSourceSlug);
 
     /**
-     * Find many mappings by categories.
+     * Find many mappings by category slugs.
      *
-     * @param array $categories
+     * @param array $categorySlugs
      * @param string $sourceSlug
+     * @param string $otherSourceSlug
      *
      * @return array|MappingInterface[]
      */
-    public function findManyMappingsByCategories(array $categories, $sourceSlug);
+    public function findManyMappingsByCategorySlugs(array $categorySlugs, $sourceSlug, $otherSourceSlug);
 
     /**
      * Create mapping object.

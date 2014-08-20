@@ -30,31 +30,25 @@ class MockMappingManager implements MappingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function findMainMapping($categorySlug, $sourceSlug)
+    public function findMainMapping($categorySlug, $sourceSlug, $otherSourceSlug)
     {
     }
 
     /**
      * {@inheritdoc}
      */
-    public function findManyByCategory(CategoryInterface $category)
-    {
-        // TODO: Implement findManyByCategory() method.
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function findManyMappings($categorySlug, $sourceSlug)
+    public function findManyMappingsByCategorySlug($categorySlug, $sourceSlug, $otherSourceSlug)
     {
         $data = array();
         foreach ($this->mappings as $mapping) {
             if (($categorySlug === $mapping->getLeft()->getSlug()) &&
-                ($sourceSlug === $mapping->getRight()->getSource()->getSlug())
+                ($sourceSlug === $mapping->getLeft()->getSource()->getSlug()) &&
+                ($otherSourceSlug === $mapping->getRight()->getSource()->getSlug())
             ) {
                 $data[] = $mapping;
             } elseif (($categorySlug === $mapping->getRight()->getSlug()) &&
-                ($sourceSlug === $mapping->getLeft()->getSource()->getSlug())
+                ($sourceSlug === $mapping->getRight()->getSource()->getSlug()) &&
+                ($otherSourceSlug === $mapping->getLeft()->getSource()->getSlug())
             ) {
                 $data[] = $mapping;
             }
@@ -66,17 +60,19 @@ class MockMappingManager implements MappingManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function findManyMappingsByCategories(array $categories, $sourceSlug)
+    public function findManyMappingsByCategorySlugs(array $categorySlugs, $sourceSlug, $otherSourceSlug)
     {
         $data = array();
-        foreach ($categories as $categorySlug) {
+        foreach ($categorySlugs as $categorySlug) {
             foreach ($this->mappings as $mapping) {
                 if (($categorySlug === $mapping->getLeft()->getSlug()) &&
-                    ($sourceSlug === $mapping->getRight()->getSource()->getSlug())
+                    ($sourceSlug === $mapping->getLeft()->getSource()->getSlug()) &&
+                    ($otherSourceSlug === $mapping->getRight()->getSource()->getSlug())
                 ) {
                     $data[] = $mapping;
                 } elseif (($categorySlug === $mapping->getRight()->getSlug()) &&
-                    ($sourceSlug === $mapping->getLeft()->getSource()->getSlug())
+                    ($sourceSlug === $mapping->getRight()->getSource()->getSlug()) &&
+                    ($otherSourceSlug === $mapping->getLeft()->getSource()->getSlug())
                 ) {
                     $data[] = $mapping;
                 }

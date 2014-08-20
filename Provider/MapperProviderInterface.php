@@ -49,11 +49,11 @@ interface MapperProviderInterface
      * Get mapping categories.
      *
      * @param CategoryInterface $category
-     * @param SourceInterface $source
+     * @param SourceInterface $otherSource
      *
      * @return array|CategoryInterface[]
      */
-    public function getMappingCategories(CategoryInterface $category, SourceInterface $source);
+    public function getMappingCategories(CategoryInterface $category, SourceInterface $otherSource);
 
     /**
      * Get mapper items.
@@ -76,12 +76,13 @@ interface MapperProviderInterface
     public function getMapperItemByCategory($categorySlug, MapperItemInterface $mapperItem);
 
     /**
-     * Get mapping main category slug.
+     * Get main mapping other category slug.
      *
-     * @param string $currentCategorySlug
+     * @param string $categorySlug
+     * @param string $sourceSlug
      * @param string $otherSourceSlug
      *
      * @return null|string
      */
-    public function getMappingMainCategorySlug($currentCategorySlug, $otherSourceSlug);
+    public function getMainMappingOtherCategorySlug($categorySlug, $sourceSlug, $otherSourceSlug);
 }
