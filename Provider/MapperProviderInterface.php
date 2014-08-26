@@ -61,7 +61,7 @@ interface MapperProviderInterface
      * @param array|CategoryInterface[] $categories
      * @param MapperItemInterface $mapperItem
      *
-     * @return array|MappingManagerInterface[]
+     * @return array|MapperItemInterface[]
      */
     public function getMapperItems(array $categories, MapperItemInterface $mapperItem);
 
