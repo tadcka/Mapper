@@ -124,11 +124,11 @@ class MapperItem implements MapperItemInterface
         uasort(
             $this->children,
             function (MapperItemInterface $first, MapperItemInterface $second) {
-                if ($first->getPriority() <= $second->getPriority()) {
+                if ($first->getPriority() >= $second->getPriority()) {
                     return 1;
                 }
 
-                if ($first->getPriority() > $second->getPriority()) {
+                if ($first->getPriority() < $second->getPriority()) {
                     return -1;
                 }
             }
