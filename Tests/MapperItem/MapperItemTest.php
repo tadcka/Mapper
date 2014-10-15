@@ -52,11 +52,12 @@ class MapperItemTest extends \PHPUnit_Framework_TestCase
         $item = new MapperItem('test', 'test');
         $item->setChildren($children);
 
-        $key = count($item->getChildren());
-        foreach ($item->getChildren() as $child) {
-            $this->assertEquals('test_' . $key, $child->getSlug());
+        $sortedChildren = array_values($item->getChildren());
 
-            $key--;
-        }
+        $this->assertEquals($children[1], $sortedChildren[0]);
+        $this->assertEquals($children[2], $sortedChildren[1]);
+        $this->assertEquals($children[4], $sortedChildren[2]);
+        $this->assertEquals($children[3], $sortedChildren[3]);
+        $this->assertEquals($children[0], $sortedChildren[4]);
     }
 }
