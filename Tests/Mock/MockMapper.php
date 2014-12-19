@@ -24,7 +24,7 @@ class MockMapper implements MapperInterface
     /**
      * {@inheritdoc}
      */
-    public function getMapper($locale)
+    public function getMapper($name, $locale)
     {
         return new MapperItem('test', 'mock');
     }

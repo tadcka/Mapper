@@ -85,9 +85,10 @@ class MapperProvider implements MapperProviderInterface
      */
     public function getMapper(SourceInterface $source, $locale)
     {
-        $config = $this->getConfig($source->getSlug());
-        if ((null !== $config) && (null !== $mapper = $config->getFactory()->create()->getMapper($locale))) {
-            return $mapper;
+        if (null !== $config = $this->getConfig($source->getSlug())) {
+            if (null !== $mapper = $config->getFactory()->create()->getMapper($config->getName(), $locale)) {
+                return $mapper;
+            }
         }
 
         throw new ResourceNotFoundException('Not found mapper ' . $source->getSlug() . '!');

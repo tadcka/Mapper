@@ -21,9 +21,10 @@ interface MapperInterface
     /**
      * Get mapper.
      *
+     * @param string $name
      * @param string $locale
      *
      * @return MapperItemInterface
      */
-    public function getMapper($locale);
+    public function getMapper($name, $locale);
 }
