@@ -12,10 +12,10 @@
 namespace Tadcka\Mapper\Provider;
 
 use Tadcka\Mapper\Exception\ResourceNotFoundException;
-use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\MappingItemInterface;
 use Tadcka\Mapper\Model\CategoryInterface;
 use Tadcka\Mapper\Model\Manager\MappingManagerInterface;
-use Tadcka\Mapper\Model\MapperSourceInterface;
+use Tadcka\Mapper\Model\MappingSourceInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -29,21 +29,21 @@ interface MapperProviderInterface
      *
      * @param string $name
      *
-     * @return null|MapperSourceInterface
+     * @return null|MappingSourceInterface
      */
     public function getSource($name);
 
     /**
      * Get mapper.
      *
-     * @param MapperSourceInterface $source
+     * @param MappingSourceInterface $source
      * @param string $locale
      *
-     * @return MapperItemInterface
+     * @return MappingItemInterface
      *
      * @throws ResourceNotFoundException
      */
-    public function getMapper(MapperSourceInterface $source, $locale);
+    public function getMapper(MappingSourceInterface $source, $locale);
 
     /**
      * Get mapping categories.
@@ -59,21 +59,21 @@ interface MapperProviderInterface
      * Get mapper items.
      *
      * @param array|CategoryInterface[] $categories
-     * @param MapperItemInterface $mapperItem
+     * @param MappingItemInterface $mapperItem
      *
-     * @return array|MapperItemInterface[]
+     * @return array|MappingItemInterface[]
      */
-    public function getMapperItems(array $categories, MapperItemInterface $mapperItem);
+    public function getMapperItems(array $categories, MappingItemInterface $mapperItem);
 
     /**
      * Get mapper item by category.
      *
      * @param string $categorySlug
-     * @param MapperItemInterface $mapperItem
+     * @param MappingItemInterface $mapperItem
      *
-     * @return null|MapperItemInterface
+     * @return null|MappingItemInterface
      */
-    public function getMapperItemByCategory($categorySlug, MapperItemInterface $mapperItem);
+    public function getMapperItemByCategory($categorySlug, MappingItemInterface $mapperItem);
 
     /**
      * Get main mapping other category slug.

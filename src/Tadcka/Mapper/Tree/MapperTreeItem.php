@@ -9,34 +9,34 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Tree;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 7/12/14 11:51 PM
  */
-class MapperItem implements MapperItemInterface
+class MapperTreeItem implements MapperTreeItemInterface
 {
     /**
      * @var string
      */
-    private $slug;
+    private $id;
 
     /**
      * @var string
      */
-    private $name;
+    private $title;
 
     /**
      * @var bool
      */
-    private $canUseForMapping;
+    private $active;
 
     /**
-     * @var array|MapperItemInterface[]
+     * @var array|MapperTreeItemInterface[]
      */
-    private $children = array();
+    private $children;
 
     /**
      * @var int
@@ -46,33 +46,50 @@ class MapperItem implements MapperItemInterface
     /**
      * Constructor.
      *
-     * @param string $slug
-     * @param string $name
-     * @param bool $canUseForMapping
-     * @param int $priority
+     * @param string $id
+     * @param string $title
      */
-    public function __construct($slug, $name, $canUseForMapping = true, $priority = 0)
+    public function __construct($id, $title)
     {
-        $this->slug = $slug;
-        $this->name = $name;
-        $this->canUseForMapping = $canUseForMapping;
-        $this->priority = $priority;
+        $this->id = $id;
+        $this->title = $title;
+        $this->active = true;
+        $this->children = array();
+        $this->priority = 0;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getSlug()
+    public function getId()
     {
-        return $this->slug;
+        return $this->id;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isActive()
+    {
+        return $this->active;
     }
 
     /**
@@ -98,7 +115,7 @@ class MapperItem implements MapperItemInterface
     /**
      * {@inheritdoc}
      */
-    public function addChild(MapperItemInterface $child)
+    public function addChild(MapperTreeItemInterface $child)
     {
         $this->children[] = $child;
     }
@@ -106,9 +123,11 @@ class MapperItem implements MapperItemInterface
     /**
      * {@inheritdoc}
      */
-    public function canUseForMapping()
+    public function setPriority($priority)
     {
-        return $this->canUseForMapping;
+        $this->priority = $priority;
+
+        return $this;
     }
 
     /**
@@ -119,11 +138,14 @@ class MapperItem implements MapperItemInterface
         return $this->priority;
     }
 
+    /**
+     * Sort item children.
+     */
     private function sortChildren()
     {
         uasort(
             $this->children,
-            function (MapperItemInterface $first, MapperItemInterface $second) {
+            function (MapperTreeItemInterface $first, MapperTreeItemInterface $second) {
                 if ($first->getPriority() >= $second->getPriority()) {
                     return 1;
                 }

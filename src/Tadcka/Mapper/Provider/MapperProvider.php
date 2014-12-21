@@ -12,7 +12,7 @@
 namespace Tadcka\Mapper\Provider;
 
 use Tadcka\Mapper\Exception\ResourceNotFoundException;
-use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\MappingItemInterface;
 use Tadcka\Mapper\Model\CategoryInterface;
 use Tadcka\Mapper\Model\Manager\MappingManagerInterface;
 use Tadcka\Mapper\Model\Manager\SourceManagerInterface;
@@ -119,7 +119,7 @@ class MapperProvider implements MapperProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getMapperItems(array $categories, MapperItemInterface $mapperItem)
+    public function getMapperItems(array $categories, MappingItemInterface $mapperItem)
     {
         $items = array();
         /** @var CategoryInterface $category */
@@ -135,7 +135,7 @@ class MapperProvider implements MapperProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getMapperItemByCategory($categorySlug, MapperItemInterface $mapperItem)
+    public function getMapperItemByCategory($categorySlug, MappingItemInterface $mapperItem)
     {
         if ((string)$categorySlug === (string)$mapperItem->getSlug()) {
             return $mapperItem;

@@ -3,7 +3,7 @@
 /*
  * This file is part of the Tadcka package.
  *
- * (c) Tadcka <tadcka89@gmail.com>
+ * (c) Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,58 +14,21 @@ namespace Tadcka\Mapper;
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/12/14 11:41 PM
+ * @since 12/21/14 10:46 PM
  */
 interface MapperItemInterface
 {
     /**
-     * Get slug.
+     * Get id.
      *
      * @return string
      */
-    public function getSlug();
+    public function getId();
 
     /**
-     * Get name.
+     * Get title.
      *
      * @return string
      */
-    public function getName();
-
-    /**
-     * Set children.
-     *
-     * @param array|MapperItemInterface[] $children
-     *
-     * @return MapperItemInterface
-     */
-    public function setChildren(array $children);
-
-    /**
-     * Get children.
-     *
-     * @return array|MapperItemInterface[]
-     */
-    public function getChildren();
-
-    /**
-     * Add child.
-     *
-     * @param MapperItemInterface $child
-     */
-    public function addChild(MapperItemInterface $child);
-
-    /**
-     * Can use for mapping.
-     *
-     * @return bool
-     */
-    public function canUseForMapping();
-
-    /**
-     * Get priority.
-     *
-     * @return int
-     */
-    public function getPriority();
+    public function getTitle();
 }

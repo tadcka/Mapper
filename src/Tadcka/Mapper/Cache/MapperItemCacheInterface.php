@@ -3,7 +3,7 @@
 /*
  * This file is part of the Tadcka package.
  *
- * (c) Tadcka <tadcka89@gmail.com>
+ * (c) Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,58 +12,28 @@
 namespace Tadcka\Mapper\Cache;
 
 use Tadcka\Mapper\MapperItemInterface;
-use Tadcka\Mapper\Model\SourceInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/15/14 8:14 PM
+ * @since 12/21/14 10:28 PM
  */
 interface MapperItemCacheInterface
 {
     /**
-     * Saves mapper item in the cache.
+     * Fetch mapper item from cache.
      *
-     * @param SourceInterface $source
+     * @param string $key
+     *
+     * @return null|MapperItemInterface
+     */
+    public function fetch($key);
+
+    /**
+     * Save mapper item to cache.
+     *
+     * @param string $key
      * @param MapperItemInterface $mapperItem
-     * @param string $locale
-     *
-     * @return
      */
-    public function save(SourceInterface $source, MapperItemInterface $mapperItem, $locale);
-
-    /**
-     * Fetches mapper item from the cache.
-     *
-     * @param SourceInterface $source
-     * @param string $locale
-     *
-     * @return null|MapperItemInterface $mapperItem
-     */
-    public function fetch(SourceInterface $source, $locale);
-
-    /**
-     * Check if has mapper item cache.
-     *
-     * @param SourceInterface $source
-     * @param string $locale
-     *
-     * @return bool
-     */
-    public function has(SourceInterface $source, $locale);
-
-    /**
-     * Remove mapper item cache by locale.
-     *
-     * @param SourceInterface $source
-     * @param string $locale
-     */
-    public function remove(SourceInterface $source, $locale);
-
-    /**
-     * Remove mapper item cache.
-     *
-     * @param SourceInterface $source
-     */
-    public function removeAll(SourceInterface $source);
+    public function save($key, MapperItemInterface $mapperItem);
 }

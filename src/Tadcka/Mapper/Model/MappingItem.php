@@ -16,7 +16,7 @@ namespace Tadcka\Mapper\Model;
  *
  * @since 14.7.12 14.11
  */
-class MapperItem implements MapperItemInterface
+class MappingItem implements MappingItemInterface
 {
     /**
      * @var string
@@ -24,7 +24,7 @@ class MapperItem implements MapperItemInterface
     protected $slug;
 
     /**
-     * @var MapperSourceInterface
+     * @var MappingSourceInterface
      */
     protected $source;
 
@@ -49,7 +49,7 @@ class MapperItem implements MapperItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setSource(MapperSourceInterface $source)
+    public function setSource(MappingSourceInterface $source)
     {
         $this->source = $source;
 

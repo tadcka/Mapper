@@ -11,7 +11,7 @@
 
 namespace Tadcka\Mapper\Helper;
 
-use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\MappingItemInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -24,11 +24,11 @@ class MapperHelper
      * Get mapper item full path.
      *
      * @param string $slug
-     * @param MapperItemInterface $tree
+     * @param MappingItemInterface $tree
      *
      * @return array
      */
-    public function getMapperItemFullPath($slug, MapperItemInterface $tree)
+    public function getMapperItemFullPath($slug, MappingItemInterface $tree)
     {
         $path = $this->findRecursiveFullPath($slug, $tree);
         if (0 < count($path)) {
@@ -44,11 +44,11 @@ class MapperHelper
      * Find recursive full path.
      *
      * @param string $slug
-     * @param MapperItemInterface $mapperItem
+     * @param MappingItemInterface $mapperItem
      *
      * @return array
      */
-    private function findRecursiveFullPath($slug, MapperItemInterface $mapperItem)
+    private function findRecursiveFullPath($slug, MappingItemInterface $mapperItem)
     {
         foreach ($mapperItem->getChildren() as $child) {
             if ($slug === $child->getSlug()) {

@@ -14,17 +14,17 @@ namespace Tadcka\Mapper;
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/12/14 11:33 PM
+ * @since 7/12/14 11:32 PM
  */
-interface MapperInterface
+interface MapperItemFactoryInterface
 {
     /**
-     * Get mapper.
+     * Create mapper.
      *
      * @param string $name
-     * @param string $locale
+     * @param ParameterBag $parameters
      *
      * @return MapperItemInterface
      */
-    public function getMapper($name, $locale);
+    public function create($name, ParameterBag $parameters);
 }

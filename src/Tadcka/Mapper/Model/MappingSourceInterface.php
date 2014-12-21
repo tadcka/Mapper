@@ -16,14 +16,14 @@ namespace Tadcka\Mapper\Model;
  *
  * @since 14.7.12 14.15
  */
-interface MapperSourceInterface
+interface MappingSourceInterface
 {
     /**
      * Set slug.
      *
      * @param string $slug
      *
-     * @return MapperSourceInterface
+     * @return MappingSourceInterface
      */
     public function setSlug($slug);
 
@@ -37,32 +37,32 @@ interface MapperSourceInterface
     /**
      * Set mapper items.
      *
-     * @param array|MapperItemInterface[] $items
+     * @param array|MappingItemInterface[] $items
      *
-     * @return MapperSourceInterface
+     * @return MappingSourceInterface
      */
     public function setItems($items);
 
     /**
      * Get mapper items.
      *
-     * @return array|MapperItemInterface[]
+     * @return array|MappingItemInterface[]
      */
     public function getItems();
 
     /**
      * Add mapper item.
      *
-     * @param MapperItemInterface $item
+     * @param MappingItemInterface $item
      */
-    public function addItem(MapperItemInterface $item);
+    public function addItem(MappingItemInterface $item);
 
     /**
      * Remove mapper item.
      *
-     * @param MapperItemInterface $item
+     * @param MappingItemInterface $item
      */
-    public function removeItem(MapperItemInterface $item);
+    public function removeItem(MappingItemInterface $item);
 
     /**
      * Get createAt.

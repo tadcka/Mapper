@@ -11,68 +11,68 @@
 
 namespace Tadcka\Mapper\Model\Manager;
 
-use Tadcka\Mapper\Model\MapperSourceInterface;
+use Tadcka\Mapper\Model\MappingSourceInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 14.7.12 14.33
  */
-interface MapperSourceManagerInterface
+interface MappingSourceManagerInterface
 {
     /**
-     * Find mapper source by slug.
+     * Find mapping source by slug.
      *
      * @param string $slug
      *
-     * @return null|MapperSourceInterface
+     * @return null|MappingSourceInterface
      */
     public function findBySlug($slug);
 
     /**
-     * Find mapper sources by slugs.
+     * Find mapping sources by slugs.
      *
      * @param array $slugs
      *
-     * @return array|MapperSourceInterface[]
+     * @return array|MappingSourceInterface[]
      */
     public function findBySlugs(array $slugs);
 
     /**
-     * Create mapper source object.
+     * Create mapping source object.
      *
-     * @return MapperSourceInterface
+     * @return MappingSourceInterface
      */
     public function create();
 
     /**
-     * Add mapper source object.
+     * Add mapping source object.
      *
-     * @param MapperSourceInterface $source
+     * @param MappingSourceInterface $source
      * @param bool $save
      */
-    public function add(MapperSourceInterface $source, $save = false);
+    public function add(MappingSourceInterface $source, $save = false);
 
     /**
-     * Remove mapper source object.
+     * Remove mapping source object.
      *
-     * @param MapperSourceInterface $source
+     * @param MappingSourceInterface $source
      * @param bool $save
      */
-    public function remove(MapperSourceInterface $source, $save = false);
+    public function remove(MappingSourceInterface $source, $save = false);
 
     /**
-     * Save mapper source objects.
+     * Save mapping source objects.
      */
     public function save();
 
     /**
-     * Clear mapper source objects.
+     * Clear mapping source objects.
      */
     public function clear();
 
     /**
-     * Get mapper source class name.
+     * Get mapping source class name.
      *
      * @return string
      */

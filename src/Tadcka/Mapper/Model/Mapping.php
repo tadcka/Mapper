@@ -24,12 +24,12 @@ class Mapping implements MappingInterface
     protected $main;
 
     /**
-     * @var MapperItemInterface
+     * @var MappingItemInterface
      */
     protected $leftItem;
 
     /**
-     * @var MapperItemInterface
+     * @var MappingItemInterface
      */
     protected $rightItem;
 
@@ -60,7 +60,7 @@ class Mapping implements MappingInterface
     /**
      * {@inheritdoc}
      */
-    public function setLeftItem(MapperItemInterface $leftItem)
+    public function setLeftItem(MappingItemInterface $leftItem)
     {
         $this->leftItem = $leftItem;
 
@@ -78,7 +78,7 @@ class Mapping implements MappingInterface
     /**
      * {@inheritdoc}
      */
-    public function setRightItem(MapperItemInterface $rightItem)
+    public function setRightItem(MappingItemInterface $rightItem)
     {
         $this->rightItem = $rightItem;
 

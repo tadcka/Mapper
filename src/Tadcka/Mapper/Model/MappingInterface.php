@@ -37,32 +37,32 @@ interface MappingInterface
     /**
      * Set left item.
      *
-     * @param MapperItemInterface $leftItem
+     * @param MappingItemInterface $leftItem
      *
      * @return MappingInterface
      */
-    public function setLeftItem(MapperItemInterface $leftItem);
+    public function setLeftItem(MappingItemInterface $leftItem);
 
     /**
      * Get left item.
      *
-     * @return MapperItemInterface
+     * @return MappingItemInterface
      */
     public function getLeftItem();
 
     /**
      * Set right item.
      *
-     * @param MapperItemInterface $rightItem
+     * @param MappingItemInterface $rightItem
      *
      * @return MappingInterface
      */
-    public function setRightItem(MapperItemInterface $rightItem);
+    public function setRightItem(MappingItemInterface $rightItem);
 
     /**
      * Get right item.
      *
-     * @return MapperItemInterface
+     * @return MappingItemInterface
      */
     public function getRightItem();
 }

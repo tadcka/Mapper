@@ -16,7 +16,7 @@ namespace Tadcka\Mapper\Model;
  *
  * @since 14.7.12 14.12
  */
-class MapperSource implements MapperSourceInterface
+class MappingSource implements MappingSourceInterface
 {
     /**
      * @var string
@@ -24,7 +24,7 @@ class MapperSource implements MapperSourceInterface
     protected $slug;
 
     /**
-     * @var array|MapperItemInterface[]
+     * @var array|MappingItemInterface[]
      */
     protected $items;
 
@@ -81,7 +81,7 @@ class MapperSource implements MapperSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function addItem(MapperItemInterface $item)
+    public function addItem(MappingItemInterface $item)
     {
         $this->items[] = $item;
     }
@@ -89,7 +89,7 @@ class MapperSource implements MapperSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function removeItem(MapperItemInterface $item)
+    public function removeItem(MappingItemInterface $item)
     {
         foreach ($this->items as $key => $value) {
             if (spl_object_hash($item) === spl_object_hash($value)) {
