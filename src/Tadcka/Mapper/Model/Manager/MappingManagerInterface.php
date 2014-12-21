@@ -11,7 +11,6 @@
 
 namespace Tadcka\Mapper\Model\Manager;
 
-use Tadcka\Mapper\Model\CategoryInterface;
 use Tadcka\Mapper\Model\MappingInterface;
 
 /**
@@ -24,35 +23,35 @@ interface MappingManagerInterface
     /**
      * Find main mapping.
      *
-     * @param string $categorySlug
+     * @param string $itemSlug
      * @param string $sourceSlug
      * @param string $otherSourceSlug
      *
      * @return null|MappingInterface
      */
-    public function findMainMapping($categorySlug, $sourceSlug, $otherSourceSlug);
+    public function findMainMapping($itemSlug, $sourceSlug, $otherSourceSlug);
 
     /**
-     * Find many mappings.
+     * Find mappings by mapper item slug.
      *
-     * @param string $categorySlug
+     * @param string $itemSlug
      * @param string $sourceSlug
      * @param string $otherSourceSlug
      *
      * @return array|MappingInterface[]
      */
-    public function findManyMappingsByCategorySlug($categorySlug, $sourceSlug, $otherSourceSlug);
+    public function findByMapperItemSlug($itemSlug, $sourceSlug, $otherSourceSlug);
 
     /**
-     * Find many mappings by category slugs.
+     * Find mappings by mapper item slugs.
      *
-     * @param array $categorySlugs
+     * @param array $itemSlugs
      * @param string $sourceSlug
      * @param string $otherSourceSlug
      *
      * @return array|MappingInterface[]
      */
-    public function findManyMappingsByCategorySlugs(array $categorySlugs, $sourceSlug, $otherSourceSlug);
+    public function findByMapperItemSlugs(array $itemSlugs, $sourceSlug, $otherSourceSlug);
 
     /**
      * Create mapping object.

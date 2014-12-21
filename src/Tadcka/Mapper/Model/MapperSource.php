@@ -16,7 +16,7 @@ namespace Tadcka\Mapper\Model;
  *
  * @since 14.7.12 14.12
  */
-class Source implements SourceInterface
+class MapperSource implements MapperSourceInterface
 {
     /**
      * @var string
@@ -24,9 +24,9 @@ class Source implements SourceInterface
     protected $slug;
 
     /**
-     * @var array|CategoryInterface[]
+     * @var array|MapperItemInterface[]
      */
-    protected $categories;
+    protected $items;
 
     /**
      * @var \Datetime
@@ -38,7 +38,7 @@ class Source implements SourceInterface
      */
     public function __construct()
     {
-        $this->categories = array();
+        $this->items = array();
         $this->createdAt = new \DateTime();
     }
 
@@ -63,9 +63,9 @@ class Source implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setCategories($categories)
+    public function setItems($items)
     {
-        $this->categories = $categories;
+        $this->items = $items;
 
         return $this;
     }
@@ -73,27 +73,27 @@ class Source implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function getCategories()
+    public function getItems()
     {
-        return $this->categories;
+        return $this->items;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function addCategory(CategoryInterface $category)
+    public function addItem(MapperItemInterface $item)
     {
-        $this->categories[] = $category;
+        $this->items[] = $item;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function removeCategory(CategoryInterface $category)
+    public function removeItem(MapperItemInterface $item)
     {
-        foreach ($this->categories as $key => $value) {
-            if (spl_object_hash($category) === spl_object_hash($value)) {
-                unset($this->categories[$key]);
+        foreach ($this->items as $key => $value) {
+            if (spl_object_hash($item) === spl_object_hash($value)) {
+                unset($this->items[$key]);
 
                 break;
             }

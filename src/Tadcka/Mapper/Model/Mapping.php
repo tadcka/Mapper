@@ -21,17 +21,25 @@ class Mapping implements MappingInterface
     /**
      * @var bool
      */
-    protected $main = false;
+    protected $main;
 
     /**
-     * @var CategoryInterface
+     * @var MapperItemInterface
      */
-    protected $left;
+    protected $leftItem;
 
     /**
-     * @var CategoryInterface
+     * @var MapperItemInterface
      */
-    protected $right;
+    protected $rightItem;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->main = false;
+    }
 
     /**
      * {@inheritdoc}
@@ -52,32 +60,36 @@ class Mapping implements MappingInterface
     /**
      * {@inheritdoc}
      */
-    public function setLeft(CategoryInterface $left)
+    public function setLeftItem(MapperItemInterface $leftItem)
     {
-        $this->left = $left;
+        $this->leftItem = $leftItem;
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getLeft()
+    public function getLeftItem()
     {
-        return $this->left;
+        return $this->leftItem;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setRight(CategoryInterface $right)
+    public function setRightItem(MapperItemInterface $rightItem)
     {
-        $this->right = $right;
+        $this->rightItem = $rightItem;
+
+        return $this;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getRight()
+    public function getRightItem()
     {
-        return $this->right;
+        return $this->rightItem;
     }
 }

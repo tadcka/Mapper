@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tadcka\\Mapper\\": "src/"
+            "Tadcka\\Mapper\\": "src/Tadcka/Mapper"
         }
     },
     "autoload-dev": {

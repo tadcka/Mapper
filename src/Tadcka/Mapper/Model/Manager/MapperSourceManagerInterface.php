@@ -11,68 +11,68 @@
 
 namespace Tadcka\Mapper\Model\Manager;
 
-use Tadcka\Mapper\Model\SourceInterface;
+use Tadcka\Mapper\Model\MapperSourceInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 14.7.12 14.33
  */
-interface SourceManagerInterface
+interface MapperSourceManagerInterface
 {
     /**
-     * Find source by slug.
+     * Find mapper source by slug.
      *
      * @param string $slug
      *
-     * @return null|SourceInterface
+     * @return null|MapperSourceInterface
      */
     public function findBySlug($slug);
 
     /**
-     * Find many source by slugs.
+     * Find mapper sources by slugs.
      *
      * @param array $slugs
      *
-     * @return array|SourceInterface[]
+     * @return array|MapperSourceInterface[]
      */
-    public function findManyBySlugs(array $slugs);
+    public function findBySlugs(array $slugs);
 
     /**
-     * Create source object.
+     * Create mapper source object.
      *
-     * @return SourceInterface
+     * @return MapperSourceInterface
      */
     public function create();
 
     /**
-     * Add source object.
+     * Add mapper source object.
      *
-     * @param SourceInterface $source
+     * @param MapperSourceInterface $source
      * @param bool $save
      */
-    public function add(SourceInterface $source, $save = false);
+    public function add(MapperSourceInterface $source, $save = false);
 
     /**
-     * Remove source object.
+     * Remove mapper source object.
      *
-     * @param SourceInterface $source
+     * @param MapperSourceInterface $source
      * @param bool $save
      */
-    public function remove(SourceInterface $source, $save = false);
+    public function remove(MapperSourceInterface $source, $save = false);
 
     /**
-     * Save source objects.
+     * Save mapper source objects.
      */
     public function save();
 
     /**
-     * Clear source objects.
+     * Clear mapper source objects.
      */
     public function clear();
 
     /**
-     * Get source class name.
+     * Get mapper source class name.
      *
      * @return string
      */

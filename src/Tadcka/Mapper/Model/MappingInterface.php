@@ -35,34 +35,34 @@ interface MappingInterface
     public function isMain();
 
     /**
-     * Set left category.
+     * Set left item.
      *
-     * @param CategoryInterface $left
-     *
-     * @return MappingInterface
-     */
-    public function setLeft(CategoryInterface $left);
-
-    /**
-     * Get left category.
-     *
-     * @return CategoryInterface
-     */
-    public function getLeft();
-
-    /**
-     * Set right category.
-     *
-     * @param CategoryInterface $right
+     * @param MapperItemInterface $leftItem
      *
      * @return MappingInterface
      */
-    public function setRight(CategoryInterface$right);
+    public function setLeftItem(MapperItemInterface $leftItem);
 
     /**
-     * Get right category.
+     * Get left item.
      *
-     * @return CategoryInterface
+     * @return MapperItemInterface
      */
-    public function getRight();
+    public function getLeftItem();
+
+    /**
+     * Set right item.
+     *
+     * @param MapperItemInterface $rightItem
+     *
+     * @return MappingInterface
+     */
+    public function setRightItem(MapperItemInterface $rightItem);
+
+    /**
+     * Get right item.
+     *
+     * @return MapperItemInterface
+     */
+    public function getRightItem();
 }

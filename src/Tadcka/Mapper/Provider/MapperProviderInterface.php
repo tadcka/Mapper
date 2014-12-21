@@ -15,7 +15,7 @@ use Tadcka\Mapper\Exception\ResourceNotFoundException;
 use Tadcka\Mapper\MapperItemInterface;
 use Tadcka\Mapper\Model\CategoryInterface;
 use Tadcka\Mapper\Model\Manager\MappingManagerInterface;
-use Tadcka\Mapper\Model\SourceInterface;
+use Tadcka\Mapper\Model\MapperSourceInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -29,21 +29,21 @@ interface MapperProviderInterface
      *
      * @param string $name
      *
-     * @return null|SourceInterface
+     * @return null|MapperSourceInterface
      */
     public function getSource($name);
 
     /**
      * Get mapper.
      *
-     * @param SourceInterface $source
+     * @param MapperSourceInterface $source
      * @param string $locale
      *
      * @return MapperItemInterface
      *
      * @throws ResourceNotFoundException
      */
-    public function getMapper(SourceInterface $source, $locale);
+    public function getMapper(MapperSourceInterface $source, $locale);
 
     /**
      * Get mapping categories.

@@ -16,7 +16,7 @@ namespace Tadcka\Mapper\Model;
  *
  * @since 14.7.12 14.11
  */
-class Category implements CategoryInterface
+class MapperItem implements MapperItemInterface
 {
     /**
      * @var string
@@ -24,7 +24,7 @@ class Category implements CategoryInterface
     protected $slug;
 
     /**
-     * @var SourceInterface
+     * @var MapperSourceInterface
      */
     protected $source;
 
@@ -49,7 +49,7 @@ class Category implements CategoryInterface
     /**
      * {@inheritdoc}
      */
-    public function setSource(SourceInterface $source)
+    public function setSource(MapperSourceInterface $source)
     {
         $this->source = $source;
 
