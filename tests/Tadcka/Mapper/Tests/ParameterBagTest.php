@@ -11,12 +11,39 @@
 
 namespace Tadcka\Mapper\Tests;
 
+use PHPUnit_Framework_TestCase as TestCase;
+use Tadcka\Mapper\ParameterBag;
+
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/21/14 11:04 PM
  */
-class ParameterBagTest
+class ParameterBagTest extends TestCase
 {
+    /**
+     * @var ParameterBag
+     */
+    private $bag;
 
+    /**
+     * {@inheritdoc}
+     */
+    protected function setUp()
+    {
+        $this->bag = new ParameterBag();
+    }
+
+    public function testSet()
+    {
+        $data = array(1, 2, 3);
+        $this->bag->set('test_key', $data);
+
+        $this->assertEquals($data, $this->bag->get('test_key'));
+    }
+
+    public function testGetWithDefaultValue()
+    {
+        $this->assertEquals('test', $this->bag->get('test_key', 'test'));
+    }
 }

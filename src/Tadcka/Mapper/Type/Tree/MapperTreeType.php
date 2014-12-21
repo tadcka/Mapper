@@ -9,23 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Provider;
+namespace Tadcka\Mapper\Type\Tree;
 
-use Tadcka\Mapper\MapperInterface;
+use Tadcka\Mapper\MapperSourceTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 12/21/14 11:54 PM
+ * @since 12/22/14 12:12 AM
  */
-interface MapperProviderInterface
+abstract class MapperTreeType implements MapperSourceTypeInterface
 {
+
     /**
-     * Get mapper.
-     *
-     * @param string $name
-     *
-     * @return MapperInterface
+     * {@inheritdoc}
      */
-    public function getMapper($name);
+    public function getName()
+    {
+        return 'mapper_tree';
+    }
 }

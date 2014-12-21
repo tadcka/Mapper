@@ -3,27 +3,25 @@
 /*
  * This file is part of the Tadcka package.
  *
- * (c) Tadcka <tadcka89@gmail.com>
+ * (c) Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Registry;
-
-use Tadcka\Mapper\Registry\Config\Config;
+namespace Tadcka\Mapper;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/12/14 11:26 PM
+ * @since 12/22/14 12:40 AM
  */
-interface RegistryInterface
+interface MapperSourceInterface
 {
     /**
-     * Add mapper config.
+     * Get mapper source name.
      *
-     * @param Config $config
+     * @return string
      */
-    public function add(Config $config);
+    public function getName();
 }

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Tree;
+namespace Tadcka\Mapper\Type\Tree;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>

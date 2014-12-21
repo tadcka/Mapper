@@ -9,22 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Registry;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/12/14 11:32 PM
+ * @since 7/12/14 11:26 PM
  */
-interface MapperItemFactoryInterface
+interface MapperRegistryInterface
 {
     /**
-     * Create mapper.
+     * Add mapper config.
      *
-     * @param string $name
-     * @param ParameterBag $parameters
-     *
-     * @return MapperItemInterface
+     * @param MapperConfig $config
      */
-    public function create($name, ParameterBag $parameters);
+    public function add(MapperConfig $config);
 }

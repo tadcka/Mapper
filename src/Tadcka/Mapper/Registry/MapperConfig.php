@@ -3,22 +3,22 @@
 /*
  * This file is part of the Tadcka package.
  *
- * (c) Tadcka <tadcka89@gmail.com>
+ * (c) Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Registry\Config;
+namespace Tadcka\Mapper\Registry;
 
-use Tadcka\Mapper\MapperFactoryInterface;
+use Tadcka\Mapper\MapperTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 7/12/14 11:27 PM
+ * @since 12/21/14 11:11 PM
  */
-class Config
+class MapperConfig
 {
     /**
      * @var string
@@ -26,20 +26,20 @@ class Config
     private $name;
 
     /**
-     * @var MapperFactoryInterface
+     * @var MapperTypeInterface
      */
-    private $factory;
+    private $mapperType;
 
     /**
      * Constructor.
      *
      * @param string $name
-     * @param MapperFactoryInterface $factory
+     * @param MapperTypeInterface $mapperType
      */
-    public function __construct($name, MapperFactoryInterface $factory)
+    public function __construct($name, MapperTypeInterface $mapperType)
     {
         $this->name = $name;
-        $this->factory = $factory;
+        $this->mapperType = $mapperType;
     }
 
     /**
@@ -53,12 +53,12 @@ class Config
     }
 
     /**
-     * Get factory.
+     * Get mapper item factory.
      *
-     * @return MapperFactoryInterface
+     * @return MapperTypeInterface
      */
-    public function getFactory()
+    public function getMapperType()
     {
-        return $this->factory;
+        return $this->mapperType;
     }
 }
