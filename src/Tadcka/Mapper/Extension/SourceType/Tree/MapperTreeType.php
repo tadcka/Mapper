@@ -9,31 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Cache;
+namespace Tadcka\Mapper\Extension\SourceType\Tree;
 
-use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\AbstractMapperSourceType;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 12/21/14 11:22 PM
+ * @since 12/22/14 12:12 AM
  */
-class NullMapperItemCache implements MapperItemCacheInterface
+abstract class MapperTreeType extends AbstractMapperSourceType
 {
 
     /**
      * {@inheritdoc}
      */
-    public function fetch($key)
+    public function getName()
     {
-        return null;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function save($key, MapperItemInterface $mapperItem)
-    {
-        // do nothing
+        return 'mapper_tree';
     }
 }

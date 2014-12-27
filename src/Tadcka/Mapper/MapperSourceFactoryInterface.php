@@ -9,23 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Type\Tree;
-
-use Tadcka\Mapper\MapperSourceTypeInterface;
+namespace Tadcka\Mapper;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 12/22/14 12:12 AM
+ * @since 14.12.27 16.23
  */
-abstract class MapperTreeType implements MapperSourceTypeInterface
+interface MapperSourceFactoryInterface
 {
-
     /**
-     * {@inheritdoc}
+     * Create mapper source.
+     *
+     * @param ParameterBag $parameters
+     *
+     * @return MapperSourceInterface
      */
-    public function getName()
-    {
-        return 'mapper_tree';
-    }
+    public function create(ParameterBag $parameters);
 }

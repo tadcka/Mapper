@@ -19,13 +19,14 @@ namespace Tadcka\Mapper;
 interface MapperSourceTypeInterface
 {
     /**
-     * Build source.
+     * Get source.
      *
+     * @param string $name
      * @param ParameterBag $parameters
      *
      * @return MapperSourceInterface
      */
-    public function buildSource(ParameterBag $parameters);
+    public function getSource($name, ParameterBag $parameters);
 
     /**
      * Get mapper source type name.

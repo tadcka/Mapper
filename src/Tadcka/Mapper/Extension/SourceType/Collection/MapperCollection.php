@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Type\Collection;
+namespace Tadcka\Mapper\Extension\SourceType\Collection;
 
 use Tadcka\Mapper\MapperItemInterface;
 use Tadcka\Mapper\MapperSourceInterface;
@@ -39,6 +39,20 @@ class MapperCollection implements MapperSourceInterface, \Countable
     {
         $this->name = $name;
         $this->collection = $collection;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getItem($id)
+    {
+        foreach ($this->collection as $item) {
+            if ($id === $item->getId()) {
+                return $item;
+            }
+        }
+
+        return null;
     }
 
     /**

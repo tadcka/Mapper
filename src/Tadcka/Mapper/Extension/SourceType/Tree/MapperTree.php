@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Type\Tree;
+namespace Tadcka\Mapper\Extension\SourceType\Tree;
 
 use Tadcka\Mapper\MapperSourceInterface;
 
@@ -33,13 +33,21 @@ class MapperTree implements MapperSourceInterface
     /**
      * Constructor.
      *
-     * @param $name
+     * @param string $name
      * @param MapperTreeItemInterface $tree
      */
     public function __construct($name, MapperTreeItemInterface $tree)
     {
         $this->name = $name;
         $this->tree = $tree;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getItem($id)
+    {
+        // TODO: Implement getItem() method.
     }
 
     /**

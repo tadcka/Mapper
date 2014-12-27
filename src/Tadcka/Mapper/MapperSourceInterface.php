@@ -19,6 +19,15 @@ namespace Tadcka\Mapper;
 interface MapperSourceInterface
 {
     /**
+     * Get mapper item by id.
+     *
+     * @param string $id
+     *
+     * @return null|MapperItemInterface
+     */
+    public function getItem($id);
+
+    /**
      * Get mapper source name.
      *
      * @return string

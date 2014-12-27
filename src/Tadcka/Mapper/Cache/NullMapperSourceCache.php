@@ -9,33 +9,31 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Type\Collection;
+namespace Tadcka\Mapper\Cache;
 
 use Tadcka\Mapper\MapperSourceInterface;
-use Tadcka\Mapper\MapperSourceTypeInterface;
-use Tadcka\Mapper\ParameterBag;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 12/22/14 1:16 AM
+ * @since 12/21/14 11:22 PM
  */
-class MapperCollectionType implements MapperSourceTypeInterface
+class NullMapperSourceCache implements MapperSourceCacheInterface
 {
 
     /**
      * {@inheritdoc}
      */
-    public function buildSource(ParameterBag $parameters)
+    public function fetch($key)
     {
-        // TODO: Implement buildMapper() method.
+        return null;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function save($key, MapperSourceInterface $mapperSource)
     {
-        return 'mapper_collection';
+        // do nothing
     }
 }
