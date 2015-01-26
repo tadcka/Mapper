@@ -12,32 +12,25 @@
 namespace Tadcka\Mapper\Extension\SourceType\Collection;
 
 use Tadcka\Mapper\MapperItemInterface;
-use Tadcka\Mapper\MapperSourceInterface;
+use Tadcka\Mapper\MapperDataInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 1:43 AM
  */
-class MapperCollection implements MapperSourceInterface, \Countable
+class MapperCollection implements MapperDataInterface, \Countable
 {
-    /**
-     * @var string
-     */
-    private $name;
-
     /**
      * @var array|MapperItemInterface[]
      */
     private $collection;
 
     /**
-     * @param string $name
      * @param array|MapperItemInterface[] $collection
      */
-    public function __construct($name, array $collection)
+    public function __construct(array $collection)
     {
-        $this->name = $name;
         $this->collection = $collection;
     }
 
@@ -56,15 +49,7 @@ class MapperCollection implements MapperSourceInterface, \Countable
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Get collection
+     * Get collection.
      *
      * @return array|MapperItemInterface[]
      */

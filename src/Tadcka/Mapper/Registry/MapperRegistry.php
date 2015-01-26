@@ -28,7 +28,7 @@ class MapperRegistry implements MapperRegistryInterface
      */
     public function __construct()
     {
-        $this->configs = array();
+        $this->configs = [];
     }
 
     /**

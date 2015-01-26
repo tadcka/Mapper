@@ -14,23 +14,16 @@ namespace Tadcka\Mapper;
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 12/22/14 12:40 AM
+ * @since 1/26/15 10:49 PM
  */
-interface MapperSourceInterface
+interface MapperDataInterface
 {
     /**
-     * Get mapper item by id.
+     * Get item.
      *
      * @param string $id
      *
      * @return null|MapperItemInterface
      */
     public function getItem($id);
-
-    /**
-     * Get mapper source name.
-     *
-     * @return string
-     */
-    public function getName();
 }

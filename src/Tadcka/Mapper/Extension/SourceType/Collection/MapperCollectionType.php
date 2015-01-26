@@ -11,15 +11,23 @@
 
 namespace Tadcka\Mapper\Extension\SourceType\Collection;
 
-use Tadcka\Mapper\AbstractMapperSourceType;
+use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\MapperSourceTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 1:16 AM
  */
-class MapperCollectionType extends AbstractMapperSourceType
+class MapperCollectionType implements MapperSourceTypeInterface
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function getDataClass()
+    {
+        return 'Tadcka\\Mapper\\Extension\\SourceType\\Collection\\MapperCollection';
+    }
     /**
      * {@inheritdoc}
      */

@@ -11,7 +11,7 @@
 
 namespace Tadcka\Mapper\Registry;
 
-use Tadcka\Mapper\MapperTypeInterface;
+use Tadcka\Mapper\MapperSourceFactoryInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -26,20 +26,20 @@ class MapperConfig
     private $name;
 
     /**
-     * @var MapperTypeInterface
+     * @var MapperSourceFactoryInterface
      */
-    private $mapperType;
+    private $factory;
 
     /**
      * Constructor.
      *
      * @param string $name
-     * @param MapperTypeInterface $mapperType
+     * @param MapperSourceFactoryInterface $factory
      */
-    public function __construct($name, MapperTypeInterface $mapperType)
+    public function __construct($name, MapperSourceFactoryInterface $factory)
     {
         $this->name = $name;
-        $this->mapperType = $mapperType;
+        $this->factory = $factory;
     }
 
     /**
@@ -53,12 +53,12 @@ class MapperConfig
     }
 
     /**
-     * Get mapper item factory.
+     * Get mapper source factory.
      *
-     * @return MapperTypeInterface
+     * @return MapperSourceFactoryInterface
      */
-    public function getMapperType()
+    public function getFactory()
     {
-        return $this->mapperType;
+        return $this->factory;
     }
 }

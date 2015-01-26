@@ -11,20 +11,15 @@
 
 namespace Tadcka\Mapper\Extension\SourceType\Tree;
 
-use Tadcka\Mapper\MapperSourceInterface;
+use Tadcka\Mapper\MapperDataInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 1:40 AM
  */
-class MapperTree implements MapperSourceInterface
+class MapperTree implements MapperDataInterface
 {
-    /**
-     * @var string
-     */
-    private $name;
-
     /**
      * @var MapperTreeItemInterface
      */
@@ -33,12 +28,10 @@ class MapperTree implements MapperSourceInterface
     /**
      * Constructor.
      *
-     * @param string $name
      * @param MapperTreeItemInterface $tree
      */
-    public function __construct($name, MapperTreeItemInterface $tree)
+    public function __construct(MapperTreeItemInterface $tree)
     {
-        $this->name = $name;
         $this->tree = $tree;
     }
 
@@ -48,14 +41,6 @@ class MapperTree implements MapperSourceInterface
     public function getItem($id)
     {
         // TODO: Implement getItem() method.
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**

@@ -11,15 +11,23 @@
 
 namespace Tadcka\Mapper\Extension\SourceType\Tree;
 
-use Tadcka\Mapper\AbstractMapperSourceType;
+use Tadcka\Mapper\MapperSourceTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 12:12 AM
  */
-abstract class MapperTreeType extends AbstractMapperSourceType
+class MapperTreeType implements MapperSourceTypeInterface
 {
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDataClass()
+    {
+        return 'Tadcka\\Mapper\\Extension\\SourceType\\Tree\\MapperTree';
+    }
 
     /**
      * {@inheritdoc}
