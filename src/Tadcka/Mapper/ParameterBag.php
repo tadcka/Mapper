@@ -36,6 +36,7 @@ class ParameterBag
      */
     public function __construct($locale, array $parameters = [])
     {
+        $this->locale = $locale;
         $this->parameters = $parameters;
     }
 

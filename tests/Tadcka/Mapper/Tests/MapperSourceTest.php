@@ -32,7 +32,8 @@ class MapperSourceTest extends TestCase
 
         new MapperSource(
             $this->getMapperTypeMock('tadcka_mapper', 'Tadcka\\Mapper\\MapperItemInterface'),
-            $this->getMapperDataMock()
+            $this->getMapperDataMock(),
+            'tadcka_mapper'
         );
     }
 
@@ -41,7 +42,8 @@ class MapperSourceTest extends TestCase
         $data = $this->getMapperDataMock();
         $source = new MapperSource(
             $this->getMapperTypeMock('tadcka_mapper'),
-            $data
+            $data,
+            'tadcka_mapper'
         );
 
         $this->assertEquals($data, $source->getData());

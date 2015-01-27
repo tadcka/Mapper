@@ -26,9 +26,9 @@ class MapperSource
     private $data;
 
     /**
-     * @var array
+     * @var string
      */
-    private $options;
+    private $name;
 
     /**
      * @var MapperSourceTypeInterface
@@ -40,15 +40,15 @@ class MapperSource
      *
      * @param MapperSourceTypeInterface $type
      * @param MapperDataInterface $data
-     * @param array $options
+     * @param string $name
      *
      * @throws MapperSourceException
      */
-    public function __construct(MapperSourceTypeInterface$type, MapperDataInterface $data, array $options = [])
+    public function __construct(MapperSourceTypeInterface$type, MapperDataInterface $data, $name)
     {
         $this->type = $type;
         $this->data = $data;
-        $this->options = $options;
+        $this->name = $name;
 
         if (false === $this->supportData()) {
             throw new MapperSourceException(sprintf("Mapper source type %s don't support this data!", $type->getName()));
@@ -66,13 +66,13 @@ class MapperSource
     }
 
     /**
-     * Get options.
+     * Get name.
      *
-     * @return array
+     * @return string
      */
-    public function getOptions()
+    public function getName()
     {
-        return $this->options;
+        return $this->name;
     }
 
     /**

@@ -40,16 +40,16 @@ class MapperSourceFactory
      *
      * @param string|MapperSourceTypeInterface $type
      * @param MapperDataInterface $data
-     * @param array $options
+     * @param string $name
      *
      * @return MapperSource
      */
-    public function create($type, MapperDataInterface $data, array $options = [])
+    public function create($type, MapperDataInterface $data, $name)
     {
         if (is_string($type)) {
             $type = $this->typeRegistry->getType($type);
         }
 
-        return new MapperSource($type, $data, $options);
+        return new MapperSource($type, $data, $name);
     }
 }
