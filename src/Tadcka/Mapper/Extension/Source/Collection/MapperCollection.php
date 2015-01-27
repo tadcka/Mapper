@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Extension\SourceType\Collection;
+namespace Tadcka\Mapper\Extension\Source\Collection;
 
 use Tadcka\Mapper\MapperItemInterface;
 use Tadcka\Mapper\MapperDataInterface;

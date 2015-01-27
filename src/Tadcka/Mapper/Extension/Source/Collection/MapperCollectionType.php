@@ -9,31 +9,29 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Extension\SourceType\Tree;
+namespace Tadcka\Mapper\Extension\Source\Collection;
 
 use Tadcka\Mapper\MapperSourceTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 12/22/14 12:12 AM
+ * @since 12/22/14 1:16 AM
  */
-class MapperTreeType implements MapperSourceTypeInterface
+class MapperCollectionType implements MapperSourceTypeInterface
 {
-
     /**
      * {@inheritdoc}
      */
     public function getDataClass()
     {
-        return 'Tadcka\\Mapper\\Extension\\SourceType\\Tree\\MapperTree';
+        return 'Tadcka\\Mapper\\Extension\\Source\\Collection\\MapperCollection';
     }
-
     /**
      * {@inheritdoc}
      */
     public function getName()
     {
-        return 'mapper_tree';
+        return 'mapper_collection';
     }
 }
