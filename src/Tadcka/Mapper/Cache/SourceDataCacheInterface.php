@@ -11,32 +11,32 @@
 
 namespace Tadcka\Mapper\Cache;
 
-use Tadcka\Mapper\MapperDataInterface;
+use Tadcka\Mapper\Source\Data\SourceDataInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/27/15 9:57 PM
  */
-interface MapperDataCacheInterface
+interface SourceDataCacheInterface
 {
     const SUB_DIR = 'data';
 
     /**
-     * Fetch mapper item from cache.
+     * Fetch mapper source data from cache.
      *
      * @param string $key
      *
-     * @return null|MapperDataInterface
+     * @return null|SourceDataInterface
      */
     public function fetch($key);
 
     /**
-     * Save mapper data to cache.
+     * Save mapper source data to cache.
      *
      * @param string $key
-     * @param MapperDataInterface $mapperData
+     * @param SourceDataInterface $data
      * @param \DateTime $ttl
      */
-    public function save($key, MapperDataInterface $mapperData, \DateTime $ttl);
+    public function save($key, SourceDataInterface $data, \DateTime $ttl);
 }

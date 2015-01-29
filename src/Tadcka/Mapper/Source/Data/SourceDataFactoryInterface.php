@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Data;
+namespace Tadcka\Mapper\Source\Data;
 
 use Tadcka\Mapper\ParameterBag;
 
@@ -18,14 +18,14 @@ use Tadcka\Mapper\ParameterBag;
  *
  * @since 14.12.27 16.23
  */
-interface MapperDataFactoryInterface
+interface SourceDataFactoryInterface
 {
     /**
      * Create mapper source.
      *
      * @param ParameterBag $parameters
      *
-     * @return MapperDataInterface
+     * @return SourceDataInterface
      */
     public function create(ParameterBag $parameters);
 }

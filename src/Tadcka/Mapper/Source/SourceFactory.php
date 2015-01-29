@@ -9,29 +9,30 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Source;
 
-use Tadcka\Mapper\Data\MapperDataInterface;
-use Tadcka\Mapper\Registry\Type\MapperTypeRegistry;
+use Tadcka\Mapper\Source\Data\SourceDataInterface;
+use Tadcka\Mapper\Source\Type\SourceTypeInterface;
+use Tadcka\Mapper\Source\Type\SourceTypeRegistry;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/27/15 12:19 AM
  */
-class MapperSourceFactory
+class SourceFactory
 {
     /**
-     * @var MapperTypeRegistry
+     * @var SourceTypeRegistry
      */
     private $typeRegistry;
 
     /**
      * Constructor.
      *
-     * @param MapperTypeRegistry $typeRegistry
+     * @param SourceTypeRegistry $typeRegistry
      */
-    public function __construct(MapperTypeRegistry $typeRegistry)
+    public function __construct(SourceTypeRegistry $typeRegistry)
     {
         $this->typeRegistry = $typeRegistry;
     }
@@ -39,18 +40,18 @@ class MapperSourceFactory
     /**
      * Create mapper source.
      *
-     * @param string|MapperTypeRegistry $type
-     * @param MapperDataInterface $data
+     * @param string|SourceTypeInterface $type
+     * @param SourceDataInterface $data
      * @param string $name
      *
-     * @return MapperSource
+     * @return Source
      */
-    public function create($type, MapperDataInterface $data, $name)
+    public function create($type, SourceDataInterface $data, $name)
     {
         if (is_string($type)) {
             $type = $this->typeRegistry->getType($type);
         }
 
-        return new MapperSource($type, $data, $name);
+        return new Source($type, $data, $name);
     }
 }

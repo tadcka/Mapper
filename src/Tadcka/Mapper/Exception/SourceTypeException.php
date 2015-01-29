@@ -9,23 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Data;
-
-use Tadcka\Mapper\MapperItemInterface;
+namespace Tadcka\Mapper\Exception;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 1/26/15 10:49 PM
+ * @since 1/26/15 11:04 PM
  */
-interface MapperDataInterface
+class SourceTypeException extends \RuntimeException
 {
-    /**
-     * Get item.
-     *
-     * @param string $id
-     *
-     * @return null|MapperItemInterface
-     */
-    public function getItem($id);
+
 }

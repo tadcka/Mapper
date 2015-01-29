@@ -11,14 +11,14 @@
 
 namespace Tadcka\Mapper\Extension\Source\Tree;
 
-use Tadcka\Mapper\Data\MapperDataInterface;
+use Tadcka\Mapper\Source\Data\SourceDataInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 1:40 AM
  */
-class MapperTree implements MapperDataInterface
+class MapperTree implements SourceDataInterface
 {
     /**
      * @var MapperTreeItemInterface

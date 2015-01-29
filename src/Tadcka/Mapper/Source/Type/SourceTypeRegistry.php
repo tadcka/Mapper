@@ -9,20 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Registry\Type;
+namespace Tadcka\Mapper\Source\Type;
 
-use Tadcka\Mapper\Exception\MapperTypeException;
-use Tadcka\Mapper\Type\MapperTypeInterface;
+use Tadcka\Mapper\Exception\SourceTypeException;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/26/15 11:02 PM
  */
-class MapperTypeRegistry
+class SourceTypeRegistry
 {
     /**
-     * @var array|MapperTypeInterface[]
+     * @var array|SourceTypeInterface[]
      */
     private $types;
 
@@ -34,15 +33,15 @@ class MapperTypeRegistry
     /**
      * Add mapper source type.
      *
-     * @param MapperTypeInterface $type
+     * @param SourceTypeInterface $type
      * @param string $alias
      *
-     * @throws MapperTypeException
+     * @throws SourceTypeException
      */
-    public function add(MapperTypeInterface $type, $alias)
+    public function add(SourceTypeInterface $type, $alias)
     {
         if ($alias !== $type->getName()) {
-            throw new MapperTypeException(sprintf('Mapper type %s alias is not valid!', $alias));
+            throw new SourceTypeException(sprintf('Mapper source type %s alias is not valid!', $alias));
         }
 
         $this->types[$alias] = $type;
@@ -53,9 +52,9 @@ class MapperTypeRegistry
      *
      * @param string $name
      *
-     * @return MapperTypeInterface
+     * @return SourceTypeInterface
      *
-     * @throws MapperTypeException
+     * @throws SourceTypeException
      */
     public function getType($name)
     {
@@ -63,13 +62,13 @@ class MapperTypeRegistry
             return $this->types[$name];
         }
 
-        throw new MapperTypeException(sprintf('Mapper type %s not found!', $name));
+        throw new SourceTypeException(sprintf('Mapper source type %s not found!', $name));
     }
 
     /**
      * Get mapper source types.
      *
-     * @return array|MapperTypeInterface[]
+     * @return array|SourceTypeInterface[]
      */
     public function getTypes()
     {

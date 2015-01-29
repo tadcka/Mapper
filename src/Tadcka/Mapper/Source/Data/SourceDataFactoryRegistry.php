@@ -9,20 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Registry\Data;
+namespace Tadcka\Mapper\Source\Data;
 
-use Tadcka\Mapper\Exception\ResourceNotFoundException;
-use Tadcka\Mapper\Data\MapperDataFactoryInterface;
+use Tadcka\Mapper\Exception\SourceDataException;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/29/15 11:35 PM
  */
-class MapperDataFactoryRegistry
+class SourceDataFactoryRegistry
 {
     /**
-     * @var array|MapperDataFactoryInterface[]
+     * @var array|SourceDataFactoryInterface[]
      */
     private $factories;
 
@@ -34,7 +33,7 @@ class MapperDataFactoryRegistry
         $this->factories = [];
     }
 
-    public function add(MapperDataFactoryInterface $factory, $alias)
+    public function add(SourceDataFactoryInterface $factory, $alias)
     {
         $this->factories[$alias] = $factory;
     }
@@ -44,9 +43,9 @@ class MapperDataFactoryRegistry
      *
      * @param string $name
      *
-     * @return MapperDataFactoryInterface
+     * @return SourceDataFactoryInterface
      *
-     * @throws ResourceNotFoundException
+     * @throws SourceDataException
      */
     public function getFactory($name)
     {
@@ -54,6 +53,6 @@ class MapperDataFactoryRegistry
             return $this->factories[$name];
         }
 
-        throw new ResourceNotFoundException(sprintf('Mapper data factory %s not found!'), $name);
+        throw new SourceDataException(sprintf('Mapper source data factory %s not found!'), $name);
     }
 }

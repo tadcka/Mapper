@@ -12,14 +12,14 @@
 namespace Tadcka\Mapper\Extension\Source\Collection;
 
 use Tadcka\Mapper\MapperItemInterface;
-use Tadcka\Mapper\Data\MapperDataInterface;
+use Tadcka\Mapper\Source\Data\SourceDataInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 1:43 AM
  */
-class MapperCollection implements MapperDataInterface, \Countable
+class MapperCollection implements SourceDataInterface, \Countable
 {
     /**
      * @var array|MapperItemInterface[]
@@ -51,7 +51,7 @@ class MapperCollection implements MapperDataInterface, \Countable
     /**
      * Get collection.
      *
-     * @return array|MapperItemInterface[]
+     * @return array|MapperCollectionItem[]
      */
     public function getCollection()
     {

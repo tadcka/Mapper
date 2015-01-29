@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Tests;
+namespace Tadcka\Mapper\Tests\Source;
 
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
-use Tadcka\Mapper\Data\MapperDataInterface;
-use Tadcka\Mapper\Type\MapperTypeInterface;
+use Tadcka\Mapper\Source\Data\SourceDataInterface;
+use Tadcka\Mapper\Source\Type\SourceTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/27/15 1:21 AM
  */
-trait MapperTestTrait
+trait SourceTestTrait
 {
     /**
      * Get mapper type mock.
@@ -28,11 +28,11 @@ trait MapperTestTrait
      * @param string $name
      * @param string $dataClass
      *
-     * @return MockObject|MapperTypeInterface
+     * @return MockObject|SourceTypeInterface
      */
-    private function getMapperTypeMock($name, $dataClass = 'Tadcka\\Mapper\\Data\\MapperDataInterface')
+    private function getMapperTypeMock($name, $dataClass = 'Tadcka\\Mapper\\Source\\Data\\SourceDataInterface')
     {
-        $mockType = $this->getMock('Tadcka\\Mapper\\Type\\MapperTypeInterface');
+        $mockType = $this->getMock('Tadcka\\Mapper\\Source\\Type\\SourceTypeInterface');
 
         $mockType->expects($this->any())
             ->method('getName')
@@ -52,9 +52,9 @@ trait MapperTestTrait
      *
      * @param string $dataClass
      *
-     * @return MockObject|MapperDataInterface
+     * @return MockObject|SourceDataInterface
      */
-    private function getMapperDataMock($dataClass = 'Tadcka\\Mapper\\Data\\MapperDataInterface')
+    private function getMapperDataMock($dataClass = 'Tadcka\\Mapper\\Source\\Data\\SourceDataInterface')
     {
         return $this->getMock($dataClass);
     }

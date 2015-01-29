@@ -9,28 +9,29 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Tests;
+namespace Tadcka\Mapper\Tests\Source;
 
 use PHPUnit_Framework_TestCase as TestCase;
 use Tadcka\Mapper\MapperSource;
+use Tadcka\Mapper\Source\Source;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/27/15 1:16 AM
  */
-class MapperSourceTest extends TestCase
+class SourceTest extends TestCase
 {
-    use MapperTestTrait;
+    use SourceTestTrait;
 
-    public function testCreate_MapperSourceExceptionRaise()
+    public function testCreate_SourceExceptionRaise()
     {
         $this->setExpectedException(
-            'Tadcka\\Mapper\\Exception\\MapperSourceException',
+            'Tadcka\\Mapper\\Exception\\SourceException',
             'Mapper source type tadcka_mapper don\'t support this data!'
         );
 
-        new MapperSource(
+        new Source(
             $this->getMapperTypeMock('tadcka_mapper', 'Tadcka\\Mapper\\MapperItemInterface'),
             $this->getMapperDataMock(),
             'tadcka_mapper'
@@ -40,7 +41,7 @@ class MapperSourceTest extends TestCase
     public function testCreate_Success()
     {
         $data = $this->getMapperDataMock();
-        $source = new MapperSource(
+        $source = new Source(
             $this->getMapperTypeMock('tadcka_mapper'),
             $data,
             'tadcka_mapper'

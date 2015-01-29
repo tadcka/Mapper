@@ -9,28 +9,28 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Tests;
+namespace Tadcka\Mapper\Tests\Source;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use Tadcka\Mapper\MapperSourceFactory;
-use Tadcka\Mapper\Registry\Type\MapperTypeRegistry;
+use Tadcka\Mapper\Source\SourceFactory;
+use Tadcka\Mapper\Source\Type\SourceTypeRegistry;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/27/15 1:06 AM
  */
-class MapperSourceFactoryTest extends TestCase
+class SourceFactoryTest extends TestCase
 {
-    use MapperTestTrait;
+    use SourceTestTrait;
 
     /**
-     * @var MapperSourceFactory
+     * @var SourceFactory
      */
     private $factory;
 
     /**
-     * @var MapperTypeRegistry
+     * @var SourceTypeRegistry
      */
     private $registry;
 
@@ -39,8 +39,8 @@ class MapperSourceFactoryTest extends TestCase
      */
     protected function setUp()
     {
-        $this->registry = new MapperTypeRegistry();
-        $this->factory = new MapperSourceFactory($this->registry);
+        $this->registry = new SourceTypeRegistry();
+        $this->factory = new SourceFactory($this->registry);
     }
 
     public function testCreate_WithStringTypeArgument()

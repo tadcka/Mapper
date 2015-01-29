@@ -9,23 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Tests\Registry\Type;
+namespace Tadcka\Mapper\Tests\Source\Type;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use Tadcka\Mapper\Registry\Type\MapperTypeRegistry;
-use Tadcka\Mapper\Tests\MapperTestTrait;
+use Tadcka\Mapper\Source\Type\SourceTypeRegistry;
+use Tadcka\Mapper\Tests\Source\SourceTestTrait;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/26/15 11:07 PM
  */
-class MapperTypeRegistryTest extends TestCase
+class SourceTypeRegistryTest extends TestCase
 {
-    use MapperTestTrait;
+    use SourceTestTrait;
 
     /**
-     * @var MapperTypeRegistry
+     * @var SourceTypeRegistry
      */
     private $registry;
 
@@ -34,14 +34,14 @@ class MapperTypeRegistryTest extends TestCase
      */
     protected function setUp()
     {
-        $this->registry = new MapperTypeRegistry();
+        $this->registry = new SourceTypeRegistry();
     }
 
-    public function testAdd_MapperTypeExceptionRaised()
+    public function testAdd_SourceTypeExceptionRaised()
     {
         $this->setExpectedException(
-            'Tadcka\\Mapper\\Exception\\MapperTypeException',
-            'Mapper type tadcka_mapper alias is not valid!'
+            'Tadcka\\Mapper\\Exception\\SourceTypeException',
+            'Mapper source type tadcka_mapper alias is not valid!'
         );
 
         $this->registry->add($this->getMapperTypeMock('tadcka_mapper_mock'), 'tadcka_mapper');
@@ -59,11 +59,11 @@ class MapperTypeRegistryTest extends TestCase
         $this->assertEquals($mockType, reset($types));
     }
 
-    public function testGetType_MapperTypeExceptionRaised()
+    public function testGetType_SourceTypeExceptionRaised()
     {
         $this->setExpectedException(
-            'Tadcka\\Mapper\\Exception\\MapperTypeException',
-            'Mapper type tadcka_mapper not found!'
+            'Tadcka\\Mapper\\Exception\\SourceTypeException',
+            'Mapper source type tadcka_mapper not found!'
         );
 
         $this->registry->getType('tadcka_mapper');

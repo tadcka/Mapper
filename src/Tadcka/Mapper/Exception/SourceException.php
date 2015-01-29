@@ -14,9 +14,9 @@ namespace Tadcka\Mapper\Exception;
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 1/26/15 11:04 PM
+ * @since 1/24/15 1:10 PM
  */
-class MapperTypeException extends \RuntimeException
+class SourceException extends \RuntimeException
 {
 
 }

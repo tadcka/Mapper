@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Source;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/29/15 10:24 PM
  */
-class MapperSourceMetadata
+class SourceMetadata
 {
     /**
      * @var string

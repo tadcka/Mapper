@@ -11,6 +11,8 @@
 
 namespace Tadcka\Mapper;
 
+use Tadcka\Mapper\Source\Source;
+
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
@@ -21,22 +23,22 @@ class Mapper
     const NAME = 'tadcka_mapper';
 
     /**
-     * @var MapperSource
+     * @var Source
      */
     private $leftSource;
 
     /**
-     * @var MapperSource
+     * @var Source
      */
     private $rightSource;
 
     /**
      * Constructor.
      *
-     * @param MapperSource $leftSource
-     * @param MapperSource $rightSource
+     * @param Source $leftSource
+     * @param Source $rightSource
      */
-    public function __construct(MapperSource $leftSource, MapperSource $rightSource)
+    public function __construct(Source $leftSource, Source $rightSource)
     {
         $this->leftSource = $leftSource;
         $this->rightSource = $rightSource;
@@ -45,7 +47,7 @@ class Mapper
     /**
      * Get left mapper source.
      *
-     * @return MapperSource
+     * @return Source
      */
     public function getLeftSource()
     {
@@ -55,7 +57,7 @@ class Mapper
     /**
      * Get right mapper source.
      *
-     * @return MapperSource
+     * @return Source
      */
     public function getRightSource()
     {
