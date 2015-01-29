@@ -12,7 +12,7 @@
 namespace Tadcka\Mapper\Extension\Source\Collection;
 
 use Tadcka\Mapper\MapperItemInterface;
-use Tadcka\Mapper\MapperDataInterface;
+use Tadcka\Mapper\Data\MapperDataInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>

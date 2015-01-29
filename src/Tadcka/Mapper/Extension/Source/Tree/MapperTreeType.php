@@ -11,14 +11,14 @@
 
 namespace Tadcka\Mapper\Extension\Source\Tree;
 
-use Tadcka\Mapper\MapperSourceTypeInterface;
+use Tadcka\Mapper\Type\MapperTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 12:12 AM
  */
-class MapperTreeType implements MapperSourceTypeInterface
+class MapperTreeType implements MapperTypeInterface
 {
 
     /**

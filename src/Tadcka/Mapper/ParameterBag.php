@@ -21,33 +21,16 @@ class ParameterBag
     /**
      * @var string
      */
-    private $locale;
-
-    /**
-     * @var string
-     */
     private $parameters;
 
     /**
      * Constructor.
      *
-     * @param string $locale
      * @param array $parameters
      */
-    public function __construct($locale, array $parameters = [])
+    public function __construct(array $parameters = [])
     {
-        $this->locale = $locale;
         $this->parameters = $parameters;
-    }
-
-    /**
-     * Get locale.
-     *
-     * @return string
-     */
-    public function getLocale()
-    {
-        return $this->locale;
     }
 
     /**

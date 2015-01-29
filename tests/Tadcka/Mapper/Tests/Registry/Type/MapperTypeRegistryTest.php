@@ -12,7 +12,7 @@
 namespace Tadcka\Mapper\Tests\Registry\Type;
 
 use PHPUnit_Framework_TestCase as TestCase;
-use Tadcka\Mapper\Registry\Type\MapperSourceTypeRegistry;
+use Tadcka\Mapper\Registry\Type\MapperTypeRegistry;
 use Tadcka\Mapper\Tests\MapperTestTrait;
 
 /**
@@ -20,12 +20,12 @@ use Tadcka\Mapper\Tests\MapperTestTrait;
  *
  * @since 1/26/15 11:07 PM
  */
-class MapperSourceTypeRegistryTest extends TestCase
+class MapperTypeRegistryTest extends TestCase
 {
     use MapperTestTrait;
 
     /**
-     * @var MapperSourceTypeRegistry
+     * @var MapperTypeRegistry
      */
     private $registry;
 
@@ -34,14 +34,14 @@ class MapperSourceTypeRegistryTest extends TestCase
      */
     protected function setUp()
     {
-        $this->registry = new MapperSourceTypeRegistry();
+        $this->registry = new MapperTypeRegistry();
     }
 
-    public function testAdd_MapperSourceTypeExceptionRaised()
+    public function testAdd_MapperTypeExceptionRaised()
     {
         $this->setExpectedException(
-            'Tadcka\\Mapper\\Exception\\MapperSourceTypeException',
-            'Mapper source type tadcka_mapper alias is not valid!'
+            'Tadcka\\Mapper\\Exception\\MapperTypeException',
+            'Mapper type tadcka_mapper alias is not valid!'
         );
 
         $this->registry->add($this->getMapperTypeMock('tadcka_mapper_mock'), 'tadcka_mapper');
@@ -59,11 +59,11 @@ class MapperSourceTypeRegistryTest extends TestCase
         $this->assertEquals($mockType, reset($types));
     }
 
-    public function testGetType_MapperSourceTypeExceptionRaised()
+    public function testGetType_MapperTypeExceptionRaised()
     {
         $this->setExpectedException(
-            'Tadcka\\Mapper\\Exception\\MapperSourceTypeException',
-            'Mapper source type tadcka_mapper not found!'
+            'Tadcka\\Mapper\\Exception\\MapperTypeException',
+            'Mapper type tadcka_mapper not found!'
         );
 
         $this->registry->getType('tadcka_mapper');

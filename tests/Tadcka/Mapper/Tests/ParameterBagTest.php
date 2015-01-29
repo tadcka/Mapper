@@ -31,7 +31,7 @@ class ParameterBagTest extends TestCase
      */
     protected function setUp()
     {
-        $this->bag = new ParameterBag('en');
+        $this->bag = new ParameterBag();
     }
 
     public function testSet()

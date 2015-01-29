@@ -9,26 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Data;
+
+use Tadcka\Mapper\ParameterBag;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 12/22/14 12:09 AM
+ * @since 14.12.27 16.23
  */
-interface MapperSourceTypeInterface
+interface MapperDataFactoryInterface
 {
     /**
-     * Get data class.
+     * Create mapper source.
      *
-     * @return string
-     */
-    public function getDataClass();
-
-    /**
-     * Get mapper source type name.
+     * @param ParameterBag $parameters
      *
-     * @return string
+     * @return MapperDataInterface
      */
-    public function getName();
+    public function create(ParameterBag $parameters);
 }

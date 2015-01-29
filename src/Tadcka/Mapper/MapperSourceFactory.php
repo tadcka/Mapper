@@ -11,7 +11,8 @@
 
 namespace Tadcka\Mapper;
 
-use Tadcka\Mapper\Registry\Type\MapperSourceTypeRegistry;
+use Tadcka\Mapper\Data\MapperDataInterface;
+use Tadcka\Mapper\Registry\Type\MapperTypeRegistry;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -21,16 +22,16 @@ use Tadcka\Mapper\Registry\Type\MapperSourceTypeRegistry;
 class MapperSourceFactory
 {
     /**
-     * @var MapperSourceTypeRegistry
+     * @var MapperTypeRegistry
      */
     private $typeRegistry;
 
     /**
      * Constructor.
      *
-     * @param MapperSourceTypeRegistry $typeRegistry
+     * @param MapperTypeRegistry $typeRegistry
      */
-    public function __construct(MapperSourceTypeRegistry $typeRegistry)
+    public function __construct(MapperTypeRegistry $typeRegistry)
     {
         $this->typeRegistry = $typeRegistry;
     }
@@ -38,7 +39,7 @@ class MapperSourceFactory
     /**
      * Create mapper source.
      *
-     * @param string|MapperSourceTypeInterface $type
+     * @param string|MapperTypeRegistry $type
      * @param MapperDataInterface $data
      * @param string $name
      *

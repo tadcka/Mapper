@@ -11,7 +11,9 @@
 
 namespace Tadcka\Mapper;
 
+use Tadcka\Mapper\Data\MapperDataInterface;
 use Tadcka\Mapper\Exception\MapperSourceException;
+use Tadcka\Mapper\Type\MapperTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -31,24 +33,31 @@ class MapperSource
     private $name;
 
     /**
-     * @var MapperSourceTypeInterface
+     * @var array
+     */
+    private $options;
+
+    /**
+     * @var MapperTypeInterface
      */
     private $type;
 
     /**
      * Constructor.
      *
-     * @param MapperSourceTypeInterface $type
+     * @param MapperTypeInterface $type
      * @param MapperDataInterface $data
      * @param string $name
      *
      * @throws MapperSourceException
      */
-    public function __construct(MapperSourceTypeInterface$type, MapperDataInterface $data, $name)
+    public function __construct(MapperTypeInterface $type, MapperDataInterface $data, $name)
     {
         $this->type = $type;
         $this->data = $data;
         $this->name = $name;
+
+        $this->options = [];
 
         if (false === $this->supportData()) {
             throw new MapperSourceException(sprintf("Mapper source type %s don't support this data!", $type->getName()));
@@ -73,6 +82,26 @@ class MapperSource
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set options.
+     *
+     * @param array $options
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+    }
+
+    /**
+     * Get options.
+     *
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
     }
 
     /**

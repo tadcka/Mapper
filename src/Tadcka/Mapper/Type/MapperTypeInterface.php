@@ -9,21 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Type;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 1/26/15 10:49 PM
+ * @since 12/22/14 12:09 AM
  */
-interface MapperDataInterface
+interface MapperTypeInterface
 {
     /**
-     * Get item.
+     * Get data class.
      *
-     * @param string $id
-     *
-     * @return null|MapperItemInterface
+     * @return string
      */
-    public function getItem($id);
+    public function getDataClass();
+
+    /**
+     * Get mapper source type name.
+     *
+     * @return string
+     */
+    public function getName();
 }

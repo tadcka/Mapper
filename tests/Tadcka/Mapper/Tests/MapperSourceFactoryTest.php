@@ -13,7 +13,7 @@ namespace Tadcka\Mapper\Tests;
 
 use PHPUnit_Framework_TestCase as TestCase;
 use Tadcka\Mapper\MapperSourceFactory;
-use Tadcka\Mapper\Registry\Type\MapperSourceTypeRegistry;
+use Tadcka\Mapper\Registry\Type\MapperTypeRegistry;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -30,7 +30,7 @@ class MapperSourceFactoryTest extends TestCase
     private $factory;
 
     /**
-     * @var MapperSourceTypeRegistry
+     * @var MapperTypeRegistry
      */
     private $registry;
 
@@ -39,7 +39,7 @@ class MapperSourceFactoryTest extends TestCase
      */
     protected function setUp()
     {
-        $this->registry = new MapperSourceTypeRegistry();
+        $this->registry = new MapperTypeRegistry();
         $this->factory = new MapperSourceFactory($this->registry);
     }
 

@@ -11,7 +11,7 @@
 
 namespace Tadcka\Mapper\Extension\Source\Tree;
 
-use Tadcka\Mapper\MapperDataInterface;
+use Tadcka\Mapper\Data\MapperDataInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>

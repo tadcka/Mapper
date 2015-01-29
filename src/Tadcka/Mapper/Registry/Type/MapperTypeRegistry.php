@@ -11,18 +11,18 @@
 
 namespace Tadcka\Mapper\Registry\Type;
 
-use Tadcka\Mapper\Exception\MapperSourceTypeException;
-use Tadcka\Mapper\MapperSourceTypeInterface;
+use Tadcka\Mapper\Exception\MapperTypeException;
+use Tadcka\Mapper\Type\MapperTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 1/26/15 11:02 PM
  */
-class MapperSourceTypeRegistry
+class MapperTypeRegistry
 {
     /**
-     * @var array|MapperSourceTypeInterface[]
+     * @var array|MapperTypeInterface[]
      */
     private $types;
 
@@ -34,29 +34,28 @@ class MapperSourceTypeRegistry
     /**
      * Add mapper source type.
      *
-     * @param MapperSourceTypeInterface $type
+     * @param MapperTypeInterface $type
      * @param string $alias
      *
-     * @throws MapperSourceTypeException
+     * @throws MapperTypeException
      */
-    public function add(MapperSourceTypeInterface $type, $alias)
+    public function add(MapperTypeInterface $type, $alias)
     {
         if ($alias !== $type->getName()) {
-            throw new MapperSourceTypeException(sprintf('Mapper source type %s alias is not valid!', $alias));
+            throw new MapperTypeException(sprintf('Mapper type %s alias is not valid!', $alias));
         }
 
         $this->types[$alias] = $type;
     }
-
 
     /**
      * Get mapper source type by name.
      *
      * @param string $name
      *
-     * @return MapperSourceTypeInterface
+     * @return MapperTypeInterface
      *
-     * @throws MapperSourceTypeException
+     * @throws MapperTypeException
      */
     public function getType($name)
     {
@@ -64,13 +63,13 @@ class MapperSourceTypeRegistry
             return $this->types[$name];
         }
 
-        throw new MapperSourceTypeException(sprintf('Mapper source type %s not found!', $name));
+        throw new MapperTypeException(sprintf('Mapper type %s not found!', $name));
     }
 
     /**
      * Get mapper source types.
      *
-     * @return array|MapperSourceTypeInterface[]
+     * @return array|MapperTypeInterface[]
      */
     public function getTypes()
     {

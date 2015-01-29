@@ -9,21 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Exception;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
- * @since 14.12.27 16.23
+ * @since 1/29/15 11:07 PM
  */
-interface MapperDataFactoryInterface
+class InvalidParameterException extends \RuntimeException
 {
-    /**
-     * Create mapper source.
-     *
-     * @param ParameterBag $parameters
-     *
-     * @return MapperDataInterface
-     */
-    public function create(ParameterBag $parameters);
+
 }

@@ -16,7 +16,7 @@ namespace Tadcka\Mapper\Exception;
  *
  * @since 1/26/15 11:04 PM
  */
-class MapperSourceTypeException extends \RuntimeException
+class MapperTypeException extends \RuntimeException
 {
 
 }

@@ -11,14 +11,14 @@
 
 namespace Tadcka\Mapper\Extension\Source\Collection;
 
-use Tadcka\Mapper\MapperSourceTypeInterface;
+use Tadcka\Mapper\Type\MapperTypeInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 1:16 AM
  */
-class MapperCollectionType implements MapperSourceTypeInterface
+class MapperCollectionType implements MapperTypeInterface
 {
     /**
      * {@inheritdoc}
