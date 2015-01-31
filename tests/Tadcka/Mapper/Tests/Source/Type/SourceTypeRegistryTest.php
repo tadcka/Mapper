@@ -44,12 +44,12 @@ class SourceTypeRegistryTest extends TestCase
             'Mapper source type tadcka_mapper alias is not valid!'
         );
 
-        $this->registry->add($this->getMapperTypeMock('tadcka_mapper_mock'), 'tadcka_mapper');
+        $this->registry->add($this->getSourceTypeMock('tadcka_mapper_mock'), 'tadcka_mapper');
     }
 
     public function testAdd_Success()
     {
-        $mockType = $this->getMapperTypeMock('tadcka_mapper');
+        $mockType = $this->getSourceTypeMock('tadcka_mapper');
 
         $this->registry->add($mockType, 'tadcka_mapper');
 
@@ -71,7 +71,7 @@ class SourceTypeRegistryTest extends TestCase
 
     public function testGetType_Success()
     {
-        $mockType = $this->getMapperTypeMock('tadcka_mapper');
+        $mockType = $this->getSourceTypeMock('tadcka_mapper');
 
         $this->registry->add($mockType, 'tadcka_mapper');
 

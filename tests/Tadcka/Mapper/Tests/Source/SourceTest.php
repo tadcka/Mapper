@@ -32,17 +32,17 @@ class SourceTest extends TestCase
         );
 
         new Source(
-            $this->getMapperTypeMock('tadcka_mapper', 'Tadcka\\Mapper\\MapperItemInterface'),
-            $this->getMapperDataMock(),
+            $this->getSourceTypeMock('tadcka_mapper', 'Tadcka\\Mapper\\MapperItemInterface'),
+            $this->getSourceDataMock(),
             'tadcka_mapper'
         );
     }
 
     public function testCreate_Success()
     {
-        $data = $this->getMapperDataMock();
+        $data = $this->getSourceDataMock();
         $source = new Source(
-            $this->getMapperTypeMock('tadcka_mapper'),
+            $this->getSourceTypeMock('tadcka_mapper'),
             $data,
             'tadcka_mapper'
         );

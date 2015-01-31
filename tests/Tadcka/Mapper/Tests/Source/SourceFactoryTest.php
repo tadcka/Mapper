@@ -45,9 +45,9 @@ class SourceFactoryTest extends TestCase
 
     public function testCreate_WithStringTypeArgument()
     {
-        $this->registry->add($this->getMapperTypeMock('tadcka_mapper'), 'tadcka_mapper');
+        $this->registry->add($this->getSourceTypeMock('tadcka_mapper'), 'tadcka_mapper');
 
-        $source = $this->factory->create('tadcka_mapper', $this->getMapperDataMock(), 'tadcka_mapper');
+        $source = $this->factory->create('tadcka_mapper', $this->getSourceDataMock(), 'tadcka_mapper');
 
         $this->assertEquals('tadcka_mapper', $source->getTypeName());
     }

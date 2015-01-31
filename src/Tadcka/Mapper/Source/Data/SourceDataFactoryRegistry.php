@@ -53,6 +53,6 @@ class SourceDataFactoryRegistry
             return $this->factories[$name];
         }
 
-        throw new SourceDataException(sprintf('Mapper source data factory %s not found!'), $name);
+        throw new SourceDataException(sprintf('Mapper source data factory %s not found!', $name));
     }
 }
