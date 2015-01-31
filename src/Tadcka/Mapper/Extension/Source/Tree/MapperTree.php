@@ -35,7 +35,10 @@ class MapperTree implements SourceDataInterface
         $this->tree = $tree;
     }
 
-    public function catMapping($id)
+    /**
+     * {@inheritdoc}
+     */
+    public function canMapping($id)
     {
         $item = $this->getItem($id);
         if (null !== $item) {

@@ -37,7 +37,7 @@ class MapperCollection implements SourceDataInterface, \Countable
     /**
      * {@inheritdoc}
      */
-    public function catMapping($id)
+    public function canMapping($id)
     {
         if (null === $this->getItem($id)) {
             return false;

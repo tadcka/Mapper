@@ -27,7 +27,7 @@ interface SourceDataInterface
      *
      * @return bool
      */
-    public function catMapping($id);
+    public function canMapping($id);
 
     /**
      * Get item.
