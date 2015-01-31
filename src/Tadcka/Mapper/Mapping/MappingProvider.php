@@ -43,7 +43,7 @@ class MappingProvider implements MappingProviderInterface
     public function getItems($sourceItemId, $sourceSlug, $otherSourceSlug)
     {
         $items = [];
-        foreach ($this->mappingManager->findBySourceItemId($sourceItemId, $sourceSlug, $otherSourceSlug) as $mapping) {
+        foreach ($this->getMappings($sourceItemId, $sourceSlug, $otherSourceSlug) as $mapping) {
             $items[] = $this->getItemBySource($mapping, $sourceSlug);
         }
 
@@ -61,6 +61,14 @@ class MappingProvider implements MappingProviderInterface
         }
 
         return $this->getItemBySource($mapping, $sourceSlug);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMappings($sourceItemId, $sourceSlug, $otherSourceSlug)
+    {
+        return $this->mappingManager->findBySourceItemId($sourceItemId, $sourceSlug, $otherSourceSlug);
     }
 
     /**

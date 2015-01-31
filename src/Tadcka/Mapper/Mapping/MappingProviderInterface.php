@@ -42,4 +42,15 @@ interface MappingProviderInterface
      * @return null|MappingInterface
      */
     public function getMainItem($sourceItemId, $sourceSlug, $otherSourceSlug);
+
+    /**
+     * Get mapper mappings.
+     *
+     * @param string $sourceItemId
+     * @param string $sourceSlug
+     * @param string $otherSourceSlug
+     *
+     * @return array|MappingInterface[]
+     */
+    public function getMappings($sourceItemId, $sourceSlug, $otherSourceSlug);
 }
