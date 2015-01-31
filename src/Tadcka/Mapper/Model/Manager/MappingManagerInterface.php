@@ -20,38 +20,39 @@ use Tadcka\Mapper\Model\MappingInterface;
  */
 interface MappingManagerInterface
 {
+
     /**
-     * Find main mapping.
+     * Find mappings by source item id.
      *
-     * @param string $itemSlug
+     * @param string $itemId
+     * @param string $sourceSlug
+     * @param string $otherSourceSlug
+     *
+     * @return array|MappingInterface[]
+     */
+    public function findBySourceItemId($itemId, $sourceSlug, $otherSourceSlug);
+
+    /**
+     * Find mappings by source item ids.
+     *
+     * @param array $itemIds
+     * @param string $sourceSlug
+     * @param string $otherSourceSlug
+     *
+     * @return array|MappingInterface[]
+     */
+    public function findBySourceItemIds(array $itemIds, $sourceSlug, $otherSourceSlug);
+
+    /**
+     * Find main mapping by source item id.
+     *
+     * @param string $itemId
      * @param string $sourceSlug
      * @param string $otherSourceSlug
      *
      * @return null|MappingInterface
      */
-    public function findMainMapping($itemSlug, $sourceSlug, $otherSourceSlug);
-
-    /**
-     * Find mappings by mapper item slug.
-     *
-     * @param string $itemSlug
-     * @param string $sourceSlug
-     * @param string $otherSourceSlug
-     *
-     * @return array|MappingInterface[]
-     */
-    public function findByMapperItemSlug($itemSlug, $sourceSlug, $otherSourceSlug);
-
-    /**
-     * Find mappings by mapper item slugs.
-     *
-     * @param array $itemSlugs
-     * @param string $sourceSlug
-     * @param string $otherSourceSlug
-     *
-     * @return array|MappingInterface[]
-     */
-    public function findByMapperItemSlugs(array $itemSlugs, $sourceSlug, $otherSourceSlug);
+    public function findMainBySourceItemId($itemId, $sourceSlug, $otherSourceSlug);
 
     /**
      * Create mapping object.

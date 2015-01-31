@@ -11,7 +11,7 @@
 
 namespace Tadcka\Mapper\Source\Data;
 
-use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\Source\SourceItemInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -21,11 +21,20 @@ use Tadcka\Mapper\MapperItemInterface;
 interface SourceDataInterface
 {
     /**
+     * Check or can mapping source item.
+     *
+     * @param string $id
+     *
+     * @return bool
+     */
+    public function catMapping($id);
+
+    /**
      * Get item.
      *
      * @param string $id
      *
-     * @return null|MapperItemInterface
+     * @return null|SourceItemInterface
      */
     public function getItem($id);
 }

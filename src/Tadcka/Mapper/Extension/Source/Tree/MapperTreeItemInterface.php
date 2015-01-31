@@ -11,14 +11,14 @@
 
 namespace Tadcka\Mapper\Extension\Source\Tree;
 
-use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\Source\SourceItemInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 7/12/14 11:41 PM
  */
-interface MapperTreeItemInterface extends MapperItemInterface
+interface MapperTreeItemInterface extends SourceItemInterface
 {
     /**
      * Set active for mapping.

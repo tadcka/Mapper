@@ -11,8 +11,8 @@
 
 namespace Tadcka\Mapper\Extension\Source\Collection;
 
-use Tadcka\Mapper\MapperItemInterface;
 use Tadcka\Mapper\Source\Data\SourceDataInterface;
+use Tadcka\Mapper\Source\SourceItemInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -22,16 +22,28 @@ use Tadcka\Mapper\Source\Data\SourceDataInterface;
 class MapperCollection implements SourceDataInterface, \Countable
 {
     /**
-     * @var array|MapperItemInterface[]
+     * @var array|SourceItemInterface[]
      */
     private $collection;
 
     /**
-     * @param array|MapperItemInterface[] $collection
+     * @param array|SourceItemInterface[] $collection
      */
     public function __construct(array $collection)
     {
         $this->collection = $collection;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function catMapping($id)
+    {
+        if (null === $this->getItem($id)) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

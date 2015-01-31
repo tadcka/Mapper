@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper;
+namespace Tadcka\Mapper\Source;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/21/14 10:46 PM
  */
-interface MapperItemInterface
+interface SourceItemInterface
 {
     /**
      * Get id.

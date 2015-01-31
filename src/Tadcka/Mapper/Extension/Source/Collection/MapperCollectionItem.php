@@ -11,14 +11,14 @@
 
 namespace Tadcka\Mapper\Extension\Source\Collection;
 
-use Tadcka\Mapper\MapperItemInterface;
+use Tadcka\Mapper\Source\SourceItemInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
  *
  * @since 12/22/14 1:13 AM
  */
-class MapperCollectionItem implements MapperItemInterface
+class MapperCollectionItem implements SourceItemInterface
 {
     /**
      * @var string

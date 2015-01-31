@@ -35,12 +35,24 @@ class MapperTree implements SourceDataInterface
         $this->tree = $tree;
     }
 
+    public function catMapping($id)
+    {
+        $item = $this->getItem($id);
+        if (null !== $item) {
+            return $item->isActive();
+        }
+
+        return false;
+    }
+
     /**
      * {@inheritdoc}
+     *
+     * @return null|MapperTreeItemInterface
      */
     public function getItem($id)
     {
-        // TODO: Implement getItem() method.
+        return $this->findTreeItem($id, $this->getTree());
     }
 
     /**
@@ -51,5 +63,27 @@ class MapperTree implements SourceDataInterface
     public function getTree()
     {
         return $this->tree;
+    }
+
+    /**
+     * Find tree item by id.
+     *
+     * @param string $id
+     * @param MapperTreeItemInterface $item
+     *
+     * @return null|MapperTreeItemInterface
+     */
+    public function findTreeItem($id, MapperTreeItemInterface $item)
+    {
+        if ($id === $item->getId()) {
+            return $item;
+        }
+        foreach ($item->getChildren() as $child) {
+            if (null !== $treeItem = $this->findTreeItem($id, $child)) {
+                return $treeItem;
+            }
+        }
+
+        return null;
     }
 }

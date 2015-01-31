@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Tadcka\Mapper\Provider;
+namespace Tadcka\Mapper\Mapping;
 
 use Tadcka\Mapper\Model\MappingInterface;
-use Tadcka\Mapper\Model\MappingSourceInterface;
+use Tadcka\Mapper\Model\MappingItemInterface;
 
 /**
  * @author Tadas Gliaubicas <tadcka89@gmail.com>
@@ -22,22 +22,24 @@ use Tadcka\Mapper\Model\MappingSourceInterface;
 interface MappingProviderInterface
 {
     /**
-     * Get mapper item main mapping.
+     * Get mapper mapping items.
      *
-     * @param string $itemSlug
+     * @param string $sourceItemId
+     * @param string $sourceSlug
+     * @param string $otherSourceSlug
+     *
+     * @return array|MappingItemInterface[]
+     */
+    public function getItems($sourceItemId, $sourceSlug, $otherSourceSlug);
+
+    /**
+     * Get mapper mapping main item.
+     *
+     * @param string $sourceItemId
      * @param string $sourceSlug
      * @param string $otherSourceSlug
      *
      * @return null|MappingInterface
      */
-    public function getItemMainMapping($itemSlug, $sourceSlug, $otherSourceSlug);
-
-    /**
-     * Get mapping source.
-     *
-     * @param string $name
-     *
-     * @return null|MappingSourceInterface
-     */
-    public function getSource($name);
+    public function getMainItem($sourceItemId, $sourceSlug, $otherSourceSlug);
 }

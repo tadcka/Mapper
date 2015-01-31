@@ -25,6 +25,8 @@ class SourceProviderTest extends TestCase
 {
     use SourceTestTrait;
 
+    CONST FACTORY_ALIAS = 'source_data_factory';
+
     /**
      * @var SourceDataFactoryRegistry
      */
@@ -45,19 +47,19 @@ class SourceProviderTest extends TestCase
     {
         $this->setExpectedException(
             'Tadcka\\Mapper\\Exception\\SourceDataException',
-            'Mapper source data factory tadcka_mapper not found!'
+            sprintf('Mapper source data factory %s not found!', self::FACTORY_ALIAS)
         );
 
-        $this->provider->getData($this->createMetadata('tadcka_mapper'));
+        $this->provider->getData($this->createMetadata(self::FACTORY_ALIAS));
     }
 
     public function testGetData_Success()
     {
         $dataMock = $this->getSourceDataMock();
 
-        $this->dataFactoryRegistry->add($this->getSourceDataFactoryMock($dataMock), 'tadcka_mapper');
+        $this->dataFactoryRegistry->add($this->getSourceDataFactoryMock($dataMock), self::FACTORY_ALIAS);
 
-        $this->assertEquals($dataMock, $this->provider->getData($this->createMetadata('tadcka_mapper')));
+        $this->assertEquals($dataMock, $this->provider->getData($this->createMetadata(self::FACTORY_ALIAS)));
     }
 
     private function createMetadata($name, array $options = [])
