@@ -12,6 +12,8 @@
 namespace Tadcka\Mapper\Source;
 
 use Tadcka\Mapper\Exception\SourceException;
+use Tadcka\Mapper\ParameterBag;
+use Tadcka\Mapper\Source\Data\SourceDataFactoryInterface;
 use Tadcka\Mapper\Source\Data\SourceDataInterface;
 use Tadcka\Mapper\Source\Type\SourceTypeInterface;
 
@@ -26,6 +28,11 @@ class Source
      * @var SourceDataInterface
      */
     private $data;
+
+    /**
+     * @var SourceDataFactoryInterface
+     */
+    private $dataFactory;
 
     /**
      * @var string
@@ -46,32 +53,48 @@ class Source
      * Constructor.
      *
      * @param SourceTypeInterface $type
-     * @param SourceDataInterface $data
+     * @param SourceDataFactoryInterface $dataFactory
      * @param string $name
-     *
-     * @throws SourceException
      */
-    public function __construct(SourceTypeInterface $type, SourceDataInterface $data, $name)
+    public function __construct(SourceTypeInterface $type, SourceDataFactoryInterface $dataFactory, $name)
     {
         $this->type = $type;
-        $this->data = $data;
+        $this->dataFactory = $dataFactory;
         $this->name = $name;
 
         $this->options = [];
-
-        if (false === $this->supportData()) {
-            throw new SourceException(sprintf("Mapper source type %s don't support this data!", $type->getName()));
-        }
     }
 
     /**
      * Get mapper source data.
      *
      * @return SourceDataInterface
+     *
+     * @throws SourceException
      */
     public function getData()
     {
+        if (null === $this->data) {
+            $this->data = $this->dataFactory->create(new ParameterBag($this->options));
+
+            if (false === $this->supportData()) {
+                throw new SourceException(
+                    sprintf("Mapper source type %s don't support this data!", $this->getTypeName())
+                );
+            }
+        }
+
         return $this->data;
+    }
+
+    /**
+     * Get data factory name.
+     *
+     * @return string
+     */
+    public function getDataFactoryName()
+    {
+        return $this->dataFactory->getName();
     }
 
     /**

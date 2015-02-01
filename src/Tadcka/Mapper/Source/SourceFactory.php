@@ -11,7 +11,7 @@
 
 namespace Tadcka\Mapper\Source;
 
-use Tadcka\Mapper\Source\Data\SourceDataInterface;
+use Tadcka\Mapper\Source\Data\SourceDataFactoryInterface;
 use Tadcka\Mapper\Source\Type\SourceTypeInterface;
 use Tadcka\Mapper\Source\Type\SourceTypeRegistry;
 
@@ -41,17 +41,17 @@ class SourceFactory
      * Create mapper source.
      *
      * @param string|SourceTypeInterface $type
-     * @param SourceDataInterface $data
+     * @param SourceDataFactoryInterface $dataFactory
      * @param string $name
      *
      * @return Source
      */
-    public function create($type, SourceDataInterface $data, $name)
+    public function create($type, SourceDataFactoryInterface $dataFactory, $name)
     {
         if (is_string($type)) {
             $type = $this->typeRegistry->getType($type);
         }
 
-        return new Source($type, $data, $name);
+        return new Source($type, $dataFactory, $name);
     }
 }

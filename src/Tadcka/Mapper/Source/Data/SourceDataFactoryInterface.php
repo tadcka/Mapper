@@ -28,4 +28,11 @@ interface SourceDataFactoryInterface
      * @return SourceDataInterface
      */
     public function create(ParameterBag $parameters);
+
+    /**
+     * Get factory name.
+     *
+     * @return string
+     */
+    public function getName();
 }

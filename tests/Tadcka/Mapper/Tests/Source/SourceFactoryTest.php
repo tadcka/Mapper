@@ -47,7 +47,7 @@ class SourceFactoryTest extends TestCase
     {
         $this->registry->add($this->getSourceTypeMock('tadcka_mapper'), 'tadcka_mapper');
 
-        $source = $this->factory->create('tadcka_mapper', $this->getSourceDataMock(), 'tadcka_mapper');
+        $source = $this->factory->create('tadcka_mapper', $this->getSourceDataFactoryMock(), 'tadcka_mapper');
 
         $this->assertEquals('tadcka_mapper', $source->getTypeName());
     }

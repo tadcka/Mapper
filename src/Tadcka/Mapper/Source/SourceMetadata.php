@@ -34,21 +34,27 @@ class SourceMetadata
     private $options;
 
     /**
+     * @var string
+     */
+    private $dataFactoryName;
+
+    /**
      * Constructor.
      *
-     * @param string $name
      * @param string $type
-     * @param array $options
+     * @param string $dataFactoryName
+     * @param string $name
      */
-    public function __construct($name, $type, array $options)
+    public function __construct($type, $dataFactoryName, $name)
     {
-        $this->name = $name;
-        $this->options = $options;
         $this->type = $type;
+        $this->dataFactoryName = $dataFactoryName;
+        $this->name = $name;
+        $this->options = [];
     }
 
     /**
-     * Get name.
+     * Get source name.
      *
      * @return string
      */
@@ -58,13 +64,23 @@ class SourceMetadata
     }
 
     /**
-     * Get type.
+     * Get source type.
      *
      * @return string
      */
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set options.
+     *
+     * @param array $options
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
     }
 
     /**
@@ -75,5 +91,15 @@ class SourceMetadata
     public function getOptions()
     {
         return $this->options;
+    }
+
+    /**
+     * Get source data factory name.
+     *
+     * @return string
+     */
+    public function getDataFactoryName()
+    {
+        return $this->dataFactoryName;
     }
 }

@@ -51,8 +51,8 @@ class SourceProvider
      */
     public function getData(SourceMetadata $metadata)
     {
-        if (false === isset($this->data[$metadata->getName()])) {
-            $factory = $this->dataFactoryRegistry->getFactory($metadata->getName());
+        if (false === isset($this->data[$metadata->getDataFactoryName()])) {
+            $factory = $this->dataFactoryRegistry->getFactory($metadata->getDataFactoryName());
 
             $this->data[$metadata->getName()] = $factory->create(new ParameterBag($metadata->getOptions()));
         }
