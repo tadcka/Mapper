@@ -62,8 +62,8 @@ class SourceProviderTest extends TestCase
         $this->assertEquals($dataMock, $this->provider->getData($this->createMetadata(self::FACTORY_ALIAS)));
     }
 
-    private function createMetadata($name, array $options = [])
+    private function createMetadata($name)
     {
-        return new SourceMetadata($name, $options);
+        return new SourceMetadata($name, 'list', []);
     }
 }
