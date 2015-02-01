@@ -20,49 +20,5 @@ use Tadcka\Mapper\MappingItemInterface;
  */
 class MapperHelper
 {
-    /**
-     * Get mapper item full path.
-     *
-     * @param string $slug
-     * @param MappingItemInterface $tree
-     *
-     * @return array
-     */
-    public function getMapperItemFullPath($slug, MappingItemInterface $tree)
-    {
-        $path = $this->findRecursiveFullPath($slug, $tree);
-        if (0 < count($path)) {
-            $path[$tree->getSlug()] = $tree->getName();
 
-            return array_reverse($path);
-        }
-
-        return array();
-    }
-
-    /**
-     * Find recursive full path.
-     *
-     * @param string $slug
-     * @param MappingItemInterface $mapperItem
-     *
-     * @return array
-     */
-    private function findRecursiveFullPath($slug, MappingItemInterface $mapperItem)
-    {
-        foreach ($mapperItem->getChildren() as $child) {
-            if ($slug === $child->getSlug()) {
-                return array($slug => $child->getName());
-            } else {
-                $path = $this->findRecursiveFullPath($slug, $child);
-                if (0 < count($path)) {
-                    $path[$child->getSlug()] = $child->getName();
-
-                    return $path;
-                }
-            }
-        }
-
-        return array();
-    }
 }

@@ -44,6 +44,16 @@ interface MappingManagerInterface
     public function findBySourceItemIds(array $itemIds, $sourceSlug, $otherSourceSlug);
 
     /**
+     * Find mapping items by sources.
+     *
+     * @param string $sourceSlug
+     * @param string $otherSourceSlug
+     *
+     * @return array
+     */
+    public function findItemsBySources($sourceSlug, $otherSourceSlug);
+
+    /**
      * Find main mapping by source item id.
      *
      * @param string $itemId

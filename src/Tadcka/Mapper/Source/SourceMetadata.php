@@ -24,6 +24,11 @@ class SourceMetadata
     private $name;
 
     /**
+     * @var string
+     */
+    private $type;
+
+    /**
      * @var array
      */
     private $options;
@@ -31,13 +36,15 @@ class SourceMetadata
     /**
      * Constructor.
      *
-     * @param $name
+     * @param string $name
+     * @param string $type
      * @param array $options
      */
-    public function __construct($name, array $options)
+    public function __construct($name, $type, array $options)
     {
         $this->name = $name;
         $this->options = $options;
+        $this->type = $type;
     }
 
     /**
@@ -48,6 +55,16 @@ class SourceMetadata
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get type.
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**

@@ -27,6 +27,6 @@ class SourceMetadataFactory
      */
     public static function create(Source $source)
     {
-        return new SourceMetadata($source->getName(), $source->getOptions());
+        return new SourceMetadata($source->getName(), $source->getTypeName(), $source->getOptions());
     }
 }

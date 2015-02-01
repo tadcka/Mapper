@@ -37,6 +37,20 @@ class MappingProvider implements MappingProviderInterface
         $this->mappingManager = $mappingManager;
     }
 
+    public function getCountOfEachItem($sourceSlug, $otherSourceSlug)
+    {
+        $count = [];
+        foreach ($this->mappingManager->findItemsBySources($sourceSlug, $otherSourceSlug) as $item) {
+            if ($item['left_source'] === $sourceSlug) {
+                $this->plusOneItem($count, $item['left_item']);
+            } else {
+                $this->plusOneItem($count, $item['right_item']);
+            }
+        }
+
+        return $count;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -86,5 +100,14 @@ class MappingProvider implements MappingProviderInterface
         }
 
         return $mapping->getRightItem();
+    }
+
+    private function plusOneItem(array &$count, $itemId)
+    {
+        if (false === isset($count[$itemId])) {
+            $count[$itemId] = 0;
+        }
+
+        $count[$itemId]++;
     }
 }

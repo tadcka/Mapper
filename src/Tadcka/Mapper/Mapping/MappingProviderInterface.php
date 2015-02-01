@@ -22,6 +22,16 @@ use Tadcka\Mapper\Model\MappingItemInterface;
 interface MappingProviderInterface
 {
     /**
+     * Get mapping count of each item.
+     *
+     * @param string $sourceSlug
+     * @param string $otherSourceSlug
+     *
+     * @return array
+     */
+    public function getCountOfEachItem($sourceSlug, $otherSourceSlug);
+
+    /**
      * Get mapper mapping items.
      *
      * @param string $sourceItemId
