@@ -39,7 +39,7 @@ class SourceDataFactoryRegistryTest extends TestCase
         $this->registry = new SourceDataFactoryRegistry();
     }
 
-    public function testGetFactory_SourceDataExceptionRaise()
+    public function testGetFactory_SourceDataExceptionRaised()
     {
         $this->setExpectedException(
             'Tadcka\\Mapper\\Exception\\SourceDataException',

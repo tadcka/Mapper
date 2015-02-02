@@ -23,7 +23,7 @@ class SourceTest extends TestCase
 {
     use SourceTestTrait;
 
-    public function testGetData_SourceExceptionRaise()
+    public function testGetData_SourceExceptionRaised()
     {
         $this->setExpectedException(
             'Tadcka\\Mapper\\Exception\\SourceException',

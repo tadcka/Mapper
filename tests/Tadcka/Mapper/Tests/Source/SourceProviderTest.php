@@ -43,7 +43,7 @@ class SourceProviderTest extends TestCase
         $this->provider = new SourceProvider($this->dataFactoryRegistry);
     }
 
-    public function testGetData_SourceDataExceptionRaise()
+    public function testGetData_SourceDataExceptionRaised()
     {
         $this->setExpectedException(
             'Tadcka\\Mapper\\Exception\\SourceDataException',
