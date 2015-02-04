@@ -23,7 +23,7 @@ class SourceDataProvider
     /**
      * @var SourceDataFactoryRegistry
      */
-    private $dataFactoryRegistry;
+    private $factoryRegistry;
 
     /**
      * @var array
@@ -35,9 +35,9 @@ class SourceDataProvider
      *
      * @param SourceDataFactoryRegistry $dataFactoryRegistry
      */
-    public function __construct(SourceDataFactoryRegistry $dataFactoryRegistry)
+    public function __construct(SourceDataFactoryRegistry $factoryRegistry)
     {
-        $this->dataFactoryRegistry = $dataFactoryRegistry;
+        $this->factoryRegistry = $factoryRegistry;
     }
 
     /**
@@ -52,7 +52,7 @@ class SourceDataProvider
     {
         if (false === isset($this->data[$name])) {
 
-            $this->data[$name] = $this->dataFactoryRegistry->getFactory($name)->create(new ParameterBag($options));
+            $this->data[$name] = $this->factoryRegistry->getFactory($name)->create(new ParameterBag($options));
         }
 
         return $this->data[$name];
