@@ -21,6 +21,8 @@ use Tadcka\Mapper\Source\Type\SourceTypeInterface;
 class MapperTreeType implements SourceTypeInterface
 {
 
+    const NAME = 'mapper_tree';
+
     /**
      * {@inheritdoc}
      */
@@ -34,6 +36,6 @@ class MapperTreeType implements SourceTypeInterface
      */
     public function getName()
     {
-        return 'mapper_tree';
+        return self::NAME;
     }
 }

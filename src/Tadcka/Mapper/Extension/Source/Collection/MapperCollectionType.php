@@ -20,6 +20,8 @@ use Tadcka\Mapper\Source\Type\SourceTypeInterface;
  */
 class MapperCollectionType implements SourceTypeInterface
 {
+    const NAME = 'mapper_collection';
+
     /**
      * {@inheritdoc}
      */
@@ -32,6 +34,6 @@ class MapperCollectionType implements SourceTypeInterface
      */
     public function getName()
     {
-        return 'mapper_collection';
+        return self::NAME;
     }
 }
