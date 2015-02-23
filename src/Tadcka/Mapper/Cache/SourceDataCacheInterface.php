@@ -23,6 +23,15 @@ interface SourceDataCacheInterface
     const SUB_DIR = 'data';
 
     /**
+     * Delete mapper source data from cache.
+     *
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function delete($key);
+
+    /**
      * Fetch mapper source data from cache.
      *
      * @param string $key
