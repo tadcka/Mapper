@@ -32,7 +32,7 @@ class MapperTreeHelper
 
         if (0 < count($path)) {
             $path[$tree->getId()] = $tree->getTitle();
-            $path = array_reverse($path);
+            $path = array_reverse($path, true);
         }
 
         return $path;
